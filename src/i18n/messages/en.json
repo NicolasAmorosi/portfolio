@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "Nicolás Amorosi, full-stack engineer",
+    "description": "Full-stack engineer (TypeScript, Next.js, NestJS, PostgreSQL). I build and modernize business systems end to end, from the legacy database to production. Remote from Argentina; English, Spanish, Italian.",
+    "jobTitle": "Full-stack engineer"
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "home": "Nicolás Amorosi, home",
+    "sections": "Sections",
+    "work": "Work",
+    "experience": "Experience",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language",
+    "theme": "Toggle dark mode"
+  },
+  "common": {
+    "present": "present"
+  },
+  "hero": {
+    "intro": "Full-stack engineer. I build the systems organizations run on — academic records, HR, accounts payable — end to end, from the legacy database to production. Remote from Argentina, working in English, Spanish and Italian.",
+    "status": "Open to full-time remote roles. Contracts too.",
+    "email": "Email me",
+    "cv": "Download CV",
+    "codePoint": "Code point",
+    "codePointName": "Latin small a with acute",
+    "utf8": "Stored as UTF-8",
+    "misread": "Read as Windows-1252",
+    "note": "Old databases spell my name like this. Getting it right, twenty years of records at a time, is part of the job.",
+    "noteLink": "How I fixed it for a faculty in Florence"
+  },
+  "work": {
+    "title": "Selected work",
+    "aside": "Client code is private, so these pages show problems, decisions and outcomes instead of code. Happy to walk through any of it in an interview.",
+    "read": "Read the case study",
+    "otherTitle": "Also built"
+  },
+  "experience": {
+    "title": "Experience",
+    "aside": "University, client work and freelance have run in parallel since 2023.",
+    "now": "Now",
+    "education": "Education",
+    "school": "Universidad Adventista del Plata"
+  },
+  "principles": {
+    "title": "How I work",
+    "aside": "Habits that show up in every repository."
+  },
+  "stack": {
+    "title": "Tools",
+    "aside": "What I reach for, grouped by layer."
+  },
+  "about": {
+    "title": "About",
+    "p1": "I studied at Universidad Adventista del Plata — Systems Analyst in 2022, Systems Engineer in 2024 — and wrote my first production code there, upgrading the university’s Rails applications.",
+    "p2": "In 2025 I moved to Rome to run IT and development at HopeMedia Italia, the media centre of the Italian Adventist Church Union. Since August 2026 I work remotely from Entre Ríos, Argentina, for clients in Italy and Argentina. I’m an Italian citizen.",
+    "p3": "Off the clock I fly FPV drones and keep a repair log for each one, go running, self-host a home server, and I’m building an ESP32 rack that waters balcony plants on its own.",
+    "languages": "Languages"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Looking for a full-time remote role — contracts work too. Write to me:",
+    "copy": "Copy email",
+    "copied": "Copied",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "CV (PDF)",
+    "clock": "It’s {here} in Entre Ríos — {rome} in Rome and {newYork} in New York.",
+    "clockFallback": "Entre Ríos runs on UTC−3, all year.",
+    "overlap": "My working day overlaps the European afternoon and the whole US East Coast day."
+  },
+  "case": {
+    "back": "All work",
+    "period": "Period",
+    "role": "Role",
+    "stack": "Stack",
+    "problem": "The problem",
+    "constraints": "Constraints",
+    "built": "What I built",
+    "hard": "The hard parts",
+    "result": "Result",
+    "seeAlso": "Read: {title}",
+    "next": "Next case study",
+    "privacy": "The code belongs to the client and stays private. Figures are illustrations with sample data; no real records appear on this page."
+  },
+  "figures": {
+    "scopes": {
+      "legend": "View grades as",
+      "student": "Student",
+      "teacher": "Teacher",
+      "secretary": "Secretary’s office",
+      "you": "You",
+      "studentRow": "Student {letter}",
+      "hidden": "Not sent",
+      "filter": "Filter the server adds",
+      "caption": "One request for grades, answered for three people. The scope becomes a database filter; grades outside it never leave the server."
+    },
+    "encoding": {
+      "legend": "Sample",
+      "bytes": "Bytes in the old database",
+      "as": "Decoded as {codec}",
+      "ok": "Correct",
+      "fffd": "{count, plural, one {# replacement character. The gate refuses to write.} other {# replacement characters. The gate refuses to write.}}",
+      "silent": "No replacement characters, but a character is gone",
+      "invisible": "Invisible control character {code}",
+      "caption": "The same bytes through three decoders. UTF-8 fails loudly, latin1 fails silently, Windows-1252 gets it right."
+    },
+    "approval": {
+      "caption": "Built at submission time by walking up the hierarchy. Each step keeps a snapshot of its approver, so a reorganization never rewrites past approvals.",
+      "requester": "Request submitted",
+      "level": "Level {level}",
+      "approver": "Approver, level {level}",
+      "final": "Final approval",
+      "finalNote": "Whoever holds the final-approval permission",
+      "snapshot": "Snapshot stored",
+      "effect": "Timesheet filled",
+      "effectNote": "Approved absences become entries in the monthly report"
+    },
+    "archaeology": {
+      "caption": "From opaque sources to a map, then to a new database — without ever touching production.",
+      "read": "Read",
+      "move": "Move",
+      "history": "RCS history",
+      "historyNote": "1,789 files, 5,774 revisions",
+      "schema": ".df schemas",
+      "schemaNote": "Real tables and fields",
+      "sources": "4GL sources",
+      "sourcesNote": "77 programs, ~53k lines",
+      "map": "Map of tables, programs and history",
+      "staging": "Staging",
+      "stagingNote": "Legacy tables loaded one-to-one",
+      "transform": "Transform",
+      "transformNote": "Plain SQL",
+      "reconcile": "Reconcile",
+      "reconcileNote": "Totals checked against the old system"
+    },
+    "projection": {
+      "caption": "The projection window only renders the last output it received, so it can always be rebuilt. Slides take a detour through LibreOffice and pdf.js.",
+      "control": "Control window",
+      "controlNote": "The operator queues songs, passages, slides",
+      "main": "Main process",
+      "mainNote": "Owns state and SQLite; replays the last output",
+      "screen": "Projection window",
+      "screenNote": "A pure function of the last output",
+      "ipc": "Typed IPC contract",
+      "pipeline": "Slides pipeline",
+      "cache": "Cached by content"
+    }
+  },
+  "footer": {
+    "colophon": "Set in Archivo and IBM Plex Mono. Built with Next.js, React and Tailwind CSS.",
+    "rights": "© {year} Nicolás Amorosi",
+    "top": "Back to top"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "There’s nothing at this address — not even a replacement character.",
+    "home": "Go to the home page"
+  }
+}

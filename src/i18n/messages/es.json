@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "Nicolás Amorosi, ingeniero full-stack",
+    "description": "Ingeniero full-stack (TypeScript, Next.js, NestJS, PostgreSQL). Construyo y modernizo sistemas de gestión de punta a punta, desde la base de datos legacy hasta producción. Remoto desde Argentina; español, inglés, italiano.",
+    "jobTitle": "Ingeniero full-stack"
+  },
+  "nav": {
+    "skip": "Ir al contenido",
+    "home": "Nicolás Amorosi, inicio",
+    "sections": "Secciones",
+    "work": "Trabajo",
+    "experience": "Experiencia",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "theme": "Alternar modo oscuro"
+  },
+  "common": {
+    "present": "hoy"
+  },
+  "hero": {
+    "intro": "Ingeniero full-stack. Construyo los sistemas con los que funcionan las organizaciones —registros académicos, RR. HH., cuentas a pagar— de punta a punta, desde la base de datos legacy hasta producción. Remoto desde Argentina, en español, inglés e italiano.",
+    "status": "Disponible para puestos remotos full-time. También por contrato.",
+    "email": "Escribime",
+    "cv": "Descargar CV",
+    "codePoint": "Código Unicode",
+    "codePointName": "Letra a minúscula con tilde",
+    "utf8": "Guardada en UTF-8",
+    "misread": "Leída como Windows-1252",
+    "note": "Las bases de datos viejas escriben mi nombre así. Arreglarlo, veinte años de registros a la vez, es parte del trabajo.",
+    "noteLink": "Cómo lo resolví para una facultad en Florencia"
+  },
+  "work": {
+    "title": "Trabajo seleccionado",
+    "aside": "El código de mis clientes es privado, así que estas páginas muestran problemas, decisiones y resultados en lugar de código. Con gusto recorro cualquiera en una entrevista.",
+    "read": "Leer el caso",
+    "otherTitle": "También construí"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "aside": "Universidad, clientes y freelance corren en paralelo desde 2023.",
+    "now": "Hoy",
+    "education": "Formación",
+    "school": "Universidad Adventista del Plata"
+  },
+  "principles": {
+    "title": "Cómo trabajo",
+    "aside": "Hábitos que aparecen en cada repositorio."
+  },
+  "stack": {
+    "title": "Herramientas",
+    "aside": "Lo que uso, agrupado por capa."
+  },
+  "about": {
+    "title": "Sobre mí",
+    "p1": "Estudié en la Universidad Adventista del Plata —Analista en Sistemas en 2022, Ingeniero en Sistemas en 2024— y ahí escribí mi primer código productivo, actualizando las aplicaciones Rails de la universidad.",
+    "p2": "En 2025 me mudé a Roma para encargarme de IT y desarrollo en HopeMedia Italia, el centro de medios de la Unión Italiana de Iglesias Adventistas. Desde agosto de 2026 trabajo en remoto desde Entre Ríos, Argentina, para clientes de Italia y Argentina. Tengo ciudadanía italiana.",
+    "p3": "Fuera del trabajo vuelo drones FPV y llevo un registro de reparaciones de cada uno, salgo a correr, mantengo un servidor en casa y estoy armando un rack con ESP32 que riega solo las plantas del balcón.",
+    "languages": "Idiomas"
+  },
+  "contact": {
+    "title": "Contacto",
+    "lead": "Busco un puesto remoto full-time; también trabajo por contrato. Escribime:",
+    "copy": "Copiar email",
+    "copied": "Copiado",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cv": "CV (PDF, en inglés)",
+    "clock": "Son las {here} en Entre Ríos: las {rome} en Roma y las {newYork} en Nueva York.",
+    "clockFallback": "Entre Ríos está en UTC−3 todo el año.",
+    "overlap": "Mi jornada se superpone con la tarde europea y con todo el día laboral de la costa este de EE. UU."
+  },
+  "case": {
+    "back": "Todo el trabajo",
+    "period": "Período",
+    "role": "Rol",
+    "stack": "Stack",
+    "problem": "El problema",
+    "constraints": "Restricciones",
+    "built": "Qué construí",
+    "hard": "Lo difícil",
+    "result": "Resultado",
+    "seeAlso": "Leer: {title}",
+    "next": "Siguiente caso",
+    "privacy": "El código pertenece al cliente y es privado. Las figuras son ilustraciones con datos de ejemplo; en esta página no aparece ningún registro real."
+  },
+  "figures": {
+    "scopes": {
+      "legend": "Ver notas como",
+      "student": "Estudiante",
+      "teacher": "Docente",
+      "secretary": "Secretaría",
+      "you": "Vos",
+      "studentRow": "Estudiante {letter}",
+      "hidden": "No se envía",
+      "filter": "Filtro que agrega el servidor",
+      "caption": "Un mismo pedido de notas, respondido para tres personas. El alcance se convierte en un filtro de base de datos; las notas fuera de él nunca salen del servidor."
+    },
+    "encoding": {
+      "legend": "Ejemplo",
+      "bytes": "Bytes en la base vieja",
+      "as": "Decodificado como {codec}",
+      "ok": "Correcto",
+      "fffd": "{count, plural, one {# carácter de reemplazo. El control se niega a escribir.} other {# caracteres de reemplazo. El control se niega a escribir.}}",
+      "silent": "Ningún carácter de reemplazo, pero falta un carácter",
+      "invisible": "Carácter de control invisible {code}",
+      "caption": "Los mismos bytes por tres decodificadores. UTF-8 falla a la vista, latin1 falla en silencio, Windows-1252 acierta."
+    },
+    "approval": {
+      "caption": "Se arma al enviar la solicitud, subiendo por la jerarquía. Cada paso guarda una foto de su aprobador, así una reorganización nunca reescribe aprobaciones pasadas.",
+      "requester": "Solicitud enviada",
+      "level": "Nivel {level}",
+      "approver": "Aprobador, nivel {level}",
+      "final": "Aprobación final",
+      "finalNote": "Quien tenga el permiso de aprobación final",
+      "snapshot": "Foto guardada",
+      "effect": "Reporte completado",
+      "effectNote": "Las ausencias aprobadas se vuelven entradas del reporte mensual"
+    },
+    "archaeology": {
+      "caption": "De fuentes opacas a un mapa, y de ahí a una base nueva, sin tocar producción en ningún momento.",
+      "read": "Leer",
+      "move": "Mover",
+      "history": "Historia RCS",
+      "historyNote": "1.789 archivos, 5.774 revisiones",
+      "schema": "Esquemas .df",
+      "schemaNote": "Tablas y campos reales",
+      "sources": "Fuentes 4GL",
+      "sourcesNote": "77 programas, ~53 mil líneas",
+      "map": "Mapa de tablas, programas e historia",
+      "staging": "Staging",
+      "stagingNote": "Tablas legacy cargadas uno a uno",
+      "transform": "Transformar",
+      "transformNote": "SQL plano",
+      "reconcile": "Conciliar",
+      "reconcileNote": "Totales contrastados con el sistema viejo"
+    },
+    "projection": {
+      "caption": "La ventana de proyección solo dibuja la última salida que recibió, así que siempre se puede reconstruir. Las diapositivas pasan por LibreOffice y pdf.js.",
+      "control": "Ventana de control",
+      "controlNote": "Quien opera encola canciones, pasajes, diapositivas",
+      "main": "Proceso principal",
+      "mainNote": "Dueño del estado y de SQLite; reenvía la última salida",
+      "screen": "Ventana de proyección",
+      "screenNote": "Una función pura de la última salida",
+      "ipc": "Contrato IPC tipado",
+      "pipeline": "Pipeline de diapositivas",
+      "cache": "Cacheado por contenido"
+    }
+  },
+  "footer": {
+    "colophon": "Compuesto en Archivo e IBM Plex Mono. Hecho con Next.js, React y Tailwind CSS.",
+    "rights": "© {year} Nicolás Amorosi",
+    "top": "Volver arriba"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "body": "No hay nada en esta dirección; ni siquiera un carácter de reemplazo.",
+    "home": "Ir al inicio"
+  }
+}

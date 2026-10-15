@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. One palette, two schemes through light-dark(): ink on paper
+ * by day, paper on ink by night — components never need `dark:` variants.
+ * The highlighter (mark) is the only accent. It is always a background behind
+ * ink, never text on paper (it has no contrast there).
+ */
+@theme {
+  --color-*: initial;
+  --color-paper: light-dark(#f1f2ef, #0c1322);
+  --color-paper-2: light-dark(#e6e8e4, #131c30);
+  --color-ink: light-dark(#13213c, #e6e9ef);
+  --color-ink-2: light-dark(#4a5670, #a3adc1);
+  --color-rule: light-dark(#cbd0d7, #27324b);
+  --color-mark: #f4d23c;
+  --color-mark-ink: #13213c;
+  --color-transparent: transparent;
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
+
+  /* Classical scale (Bringhurst): 12 14 16 18 21 24 36 48 60 72. */
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5;
+  --text-ui: 1rem;
+  --text-ui--line-height: 1.5;
+  --text-base: 1.125rem;
+  --text-base--line-height: 1.6;
+  --text-md: 1.3125rem;
+  --text-md--line-height: 1.5;
+  --text-lg: 1.5rem;
+  --text-lg--line-height: 1.3;
+  --text-xl: 2.25rem;
+  --text-xl--line-height: 1.05;
+  --text-2xl: 3rem;
+  --text-2xl--line-height: 1;
+  --text-3xl: 3.75rem;
+  --text-3xl--line-height: 0.95;
+  --text-4xl: 4.5rem;
+  --text-4xl--line-height: 0.92;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+    scroll-padding-top: 5rem;
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :root {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    font-kerning: normal;
+    font-variant-numeric: proportional-nums;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-mark);
+    color: var(--color-mark-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+}
+
+/* Page gutter + max measure, shared by every section. */
+@utility shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 82rem;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* Type roles. Width is Archivo's wdth axis (62–125), driven by font-stretch. */
+@utility type-display {
+  font-stretch: 62%;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 0.84;
+}
+
+@utility type-heading {
+  font-stretch: 75%;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+@utility type-label {
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: var(--color-ink-2);
+}
+
+/* Inline link: thin ink underline; on hover a highlighter stroke sweeps in. */
+@utility link {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--color-ink-2);
+  background-image: linear-gradient(90deg, var(--color-mark) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition:
+    background-position 260ms var(--ease-out-quart),
+    color 160ms;
+
+  &:hover {
+    background-position: 0 0;
+    color: var(--color-mark-ink);
+    text-decoration-color: transparent;
+  }
+}
+
+/* Highlighter stroke behind a word, drawn when its .group is hovered or focused. */
+@layer components {
+  .highlight {
+    background-image: linear-gradient(90deg, var(--color-mark) 50%, transparent 50%);
+    background-repeat: no-repeat;
+    background-position: 100% 62%;
+    background-size: 200% 74%;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transition:
+      background-position 320ms var(--ease-out-quart),
+      color 160ms;
+  }
+  .group:hover .highlight,
+  .group:focus-visible .highlight,
+  .group:focus-within .highlight {
+    background-position: 0 62%;
+    color: var(--color-mark-ink);
+  }
+}
+
+/* Visible on keyboard focus only (skip link). */
+@utility sr-only-focusable {
+  &:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Header hairline + reading progress, driven by scroll (no JS). Browsers
+   without scroll-driven animations simply don't show them. */
+@supports (animation-timeline: scroll()) {
+  .header-rule {
+    animation: header-rule linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 6rem;
+  }
+
+  .reading-progress {
+    transform-origin: 0 50%;
+    animation: reading-progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@supports not (animation-timeline: scroll()) {
+  .reading-progress {
+    display: none;
+  }
+}
+
+@keyframes header-rule {
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: var(--color-rule);
+  }
+}
+
+@keyframes reading-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/*
+ * Hero name decode (see features/home/decoded-name.tsx). The server renders
+ * the mojibake; the client steps data-phase: flag → fixed → done.
+ * Without JS (noscript) or with reduced motion, the fixed name shows at once.
+ */
+.decode .decode-fixed {
+  display: none;
+}
+.decode[data-phase="fixed"] .decode-broken,
+.decode[data-phase="done"] .decode-broken {
+  display: none;
+}
+.decode[data-phase="fixed"] .decode-fixed,
+.decode[data-phase="done"] .decode-fixed {
+  display: inline;
+}
+
+/* The highlighter is a pseudo-element scaled on X: it sweeps in from the
+   left, then lifts off to the right. Transforms never leave hairlines. */
+.decode .glyph {
+  position: relative;
+  isolation: isolate;
+  transition: color 200ms;
+}
+.decode .glyph::before {
+  content: "";
+  position: absolute;
+  inset: 24% -0.03em 4%;
+  z-index: -1;
+  background: var(--color-mark);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 420ms var(--ease-out-quart);
+}
+.decode[data-phase="flag"] .glyph,
+.decode[data-phase="fixed"] .glyph {
+  color: var(--color-mark-ink);
+}
+.decode[data-phase="flag"] .glyph::before,
+.decode[data-phase="fixed"] .glyph::before {
+  transform: scaleX(1);
+}
+.decode[data-phase="done"] .glyph::before {
+  transform-origin: 100% 50%;
+  transition-duration: 700ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decode .decode-broken {
+    display: none !important;
+  }
+  .decode .decode-fixed {
+    display: inline !important;
+  }
+  .decode .glyph::before {
+    transition: none;
+  }
+}
+
+/* Theme toggle: the half-filled disc turns over with the scheme. */
+.theme-icon {
+  transition: rotate 450ms var(--ease-out-quart);
+}
+:root[data-theme="dark"] .theme-icon {
+  rotate: 180deg;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon {
+    rotate: 180deg;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
