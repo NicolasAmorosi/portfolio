@@ -51,16 +51,18 @@ old databases spell it — and decodes itself under a highlighter stroke. The re
 
 ## Quality
 
-Local production build, Lighthouse 12:
+Lighthouse 12 against [nicolasamorosi.com](https://nicolasamorosi.com), home and case studies,
+in both languages:
 
-| | Performance | Accessibility | Best practices |
-|---|---|---|---|
-| Desktop | 100 | 100 | 100 |
-| Mobile (simulated 4G) | 96 | 100 | 100 |
+| | Performance | Accessibility | Best practices | SEO |
+|---|---|---|---|---|
+| Desktop | 100 | 100 | 100 | 100 |
+| Mobile (simulated 4G) | 96 | 100 | 100 | 100 |
 
 Every text/background pair passes WCAG AA (body text ≥ 6.5:1). Keyboard reachable with
 visible focus and a skip link; layouts hold from 320 px. Per-page metadata with hreflang,
-generated Open Graph images, sitemap, robots and JSON-LD.
+generated Open Graph images, sitemap, robots and JSON-LD. Security headers on every
+response: HSTS, `nosniff`, frame denial, referrer and permissions policies.
 
 ## Stack
 
