@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.env*
+.DS_Store
+.vercel
+playwright-report/
+test-results/
+.claude/settings.local.json
+
+# Career material (CVs, salary data, third-party contacts) lives in a private
+# repo. Guard against it being copied here by mistake.
+career/
