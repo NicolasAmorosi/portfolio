@@ -102,8 +102,8 @@ export const roles: Role[] = [
 ];
 
 export const education: { title: Localized; period: Period }[] = [
-  { title: { en: "Systems Engineer", es: "Ingeniero en Sistemas" }, period: { from: "2023-03", to: "2024-11" } },
-  { title: { en: "Systems Analyst", es: "Analista en Sistemas" }, period: { from: "2020-03", to: "2022-11" } },
+  { title: { en: "Systems Engineering (Ingeniero en Sistemas)", es: "Ingeniero en Sistemas" }, period: { from: "2023-03", to: "2024-11" } },
+  { title: { en: "Systems Analysis (Analista en Sistemas)", es: "Analista en Sistemas" }, period: { from: "2020-03", to: "2022-11" } },
 ];
 
 // The timeline chart: one track per place, bars can overlap across tracks.
