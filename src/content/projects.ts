@@ -258,6 +258,131 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "lumina-live",
+    title: { en: "Lumina Live", es: "Lumina Live" },
+    client: { en: "Open source, for churches", es: "Código abierto, para iglesias" },
+    period: { from: "2026-07" },
+    role: { en: "Author and maintainer", es: "Autor y mantenedor" },
+    summary: {
+      en: "Free, open-source projection software for church services — slides, video, the Bible and timers on a second screen — built to replace EasyWorship. Public since October 2026.",
+      es: "Software libre de proyección para cultos —diapositivas, video, la Biblia y temporizadores en una segunda pantalla—, hecho para reemplazar a EasyWorship. Público desde octubre de 2026.",
+    },
+    lede: {
+      en: "During a service, one person runs the screen: a hymn, a Bible passage, the sermon slides, a video. Lumina Live is the desktop app for that job — a control window for the operator, a projection window for everyone else — and since October 2026 it is open source, with installers for Windows, macOS and Linux.",
+      es: "Durante un culto, una persona maneja la pantalla: un himno, un pasaje bíblico, las diapositivas del sermón, un video. Lumina Live es la app de escritorio para esa tarea —una ventana de control para quien opera y una de proyección para todos los demás— y desde octubre de 2026 es de código abierto, con instaladores para Windows, macOS y Linux.",
+    },
+    openSource: {
+      repo: "https://github.com/NicolasAmorosi/lumina-live",
+      website: "https://lumina-live-site.vercel.app",
+    },
+    facts: [
+      { label: { en: "License", es: "Licencia" }, value: { en: "GPL-3.0", es: "GPL-3.0" } },
+      { label: { en: "Runs on", es: "Corre en" }, value: { en: "Windows, macOS, Linux", es: "Windows, macOS, Linux" } },
+      { label: { en: "Automated tests", es: "Tests automatizados" }, value: { en: "507", es: "507" } },
+      { label: { en: "Version", es: "Versión" }, value: { en: "2.2 beta", es: "2.2 beta" } },
+    ],
+    stack: [
+      "Electron",
+      "TypeScript",
+      "React 19",
+      "electron-vite",
+      "Tailwind CSS 4",
+      "Zustand",
+      "SQLite",
+      "Drizzle",
+      "FTS5",
+      "LibreOffice",
+      "pdf.js",
+      "FFmpeg",
+      "Vitest",
+      "Playwright",
+      "electron-builder",
+    ],
+    figure: "projection",
+    problem: {
+      en: [
+        "Lumina Live — called WorshipApp until October 2026 — was built to replace EasyWorship. It is the third attempt at it: an earlier project, now archived, and a plain-JavaScript version came first.",
+        "Operators already know EasyWorship’s two-step flow — pick an item, check it in the preview, only then send it live — so the replacement keeps it.",
+      ],
+      es: [
+        "Lumina Live —WorshipApp hasta octubre de 2026— nació para reemplazar a EasyWorship. Es el tercer intento: antes hubo un proyecto, hoy archivado, y una versión en JavaScript plano.",
+        "Quienes operan ya conocen el flujo en dos pasos de EasyWorship —elegir, revisarlo en la vista previa y recién entonces mandarlo en vivo—, así que el reemplazo lo conserva.",
+      ],
+    },
+    constraints: {
+      en: [
+        "Runs on Windows, macOS and Linux; developed on a Mac.",
+        "Live use: if the projector disconnects, the picture comes back by itself when it reconnects; if the projection window closes, it returns exactly as it was.",
+        "Offline: everything local, including the Bible text and its search.",
+        "Slides arrive as PowerPoint files — among them .pps hymnals that advance on their own, with the music embedded.",
+        "Open source under GPL-3.0: the code, its documentation and its tests are public, in English, for anyone who wants to contribute.",
+      ],
+      es: [
+        "Corre en Windows, macOS y Linux; desarrollada en una Mac.",
+        "Uso en vivo: si el proyector se desconecta, la imagen vuelve sola al reconectarlo; si la ventana de proyección se cierra, vuelve exactamente como estaba.",
+        "Sin conexión: todo local, incluido el texto bíblico y su búsqueda.",
+        "Las diapositivas llegan como archivos de PowerPoint, entre ellos himnarios .pps que avanzan solos y traen la música adentro.",
+        "Código abierto bajo GPL-3.0: el código, su documentación y sus tests son públicos, en inglés, para quien quiera contribuir.",
+      ],
+    },
+    built: {
+      en: [
+        "An Electron app with a strict split: the main process owns state and the database, the operator works in a control window, and the projection window is a pure function of the last output it received. Reopen it and the main process replays that output — the screen comes back exactly as it was.",
+        "Secure defaults kept on — sandboxed renderers, web security enabled — with local files served through a custom worship:// protocol by id, never by path.",
+        "SQLite with Drizzle for service programmes, the media library and the Bible — the public-domain Reina-Valera 1909 ships with it, other versions import from five formats — with FTS5 full-text search that ignores accents, so typing “senor” finds “Señor”.",
+        "Any video or audio plays: whatever Chromium can’t decode is converted in the background by a bundled FFmpeg, without touching the original. The interface speaks English, Spanish, Italian and Portuguese, and the dictionaries are typed against each other, so a missing string doesn’t compile.",
+      ],
+      es: [
+        "Una app Electron con una separación estricta: el proceso principal es dueño del estado y la base de datos, quien opera trabaja en una ventana de control, y la ventana de proyección es una función pura de la última salida que recibió. Si se reabre, el proceso principal reenvía esa salida y la pantalla vuelve exactamente como estaba.",
+        "Valores seguros por defecto —renderers en sandbox, web security activado—, con los archivos locales servidos por un protocolo propio worship:// por id, nunca por ruta.",
+        "SQLite con Drizzle para programas de culto, la biblioteca de medios y la Biblia —viene con la Reina-Valera 1909, de dominio público, y otras versiones se importan desde cinco formatos—, con búsqueda de texto completo FTS5 que ignora acentos: escribir “senor” encuentra “Señor”.",
+        "Cualquier video o audio se reproduce: lo que Chromium no puede decodificar lo convierte en segundo plano un FFmpeg incluido, sin tocar el original. La interfaz está en español, inglés, italiano y portugués, y los diccionarios se tipan entre sí: un texto faltante no compila.",
+      ],
+    },
+    hard: [
+      {
+        title: { en: "One typed IPC contract", es: "Un único contrato IPC tipado" },
+        body: {
+          en: "Every message between processes is declared once, in a single contract type. A missing or mistyped handler doesn’t compile, and errors travel back as a typed result instead of exceptions crossing process boundaries.",
+          es: "Cada mensaje entre procesos se declara una sola vez, en un único tipo de contrato. Un handler faltante o mal tipado no compila, y los errores vuelven como un resultado tipado en lugar de excepciones cruzando procesos.",
+        },
+      },
+      {
+        title: { en: "PowerPoint without PowerPoint", es: "PowerPoint sin PowerPoint" },
+        body: {
+          en: "Automating PowerPoint over COM tied the app to Office. The current pipeline converts .pptx to PDF with headless LibreOffice, renders each page to WebP with pdf.js and caches the result by content — sidestepping the fact that LibreOffice exports only the first slide to PNG. Slide timings and audio are read straight from the presentation’s XML.",
+          es: "Automatizar PowerPoint por COM ataba la app a Office. El pipeline actual convierte .pptx a PDF con LibreOffice headless, renderiza cada página a WebP con pdf.js y cachea el resultado por contenido, esquivando que LibreOffice exporta a PNG solo la primera diapositiva. Los tiempos y el audio se leen directo del XML de la presentación.",
+        },
+      },
+      {
+        title: { en: "Reading it as a stranger would", es: "Leerlo como un desconocido" },
+        body: {
+          en: "Before the repository went public, its whole history was swept for keys, tokens and local paths, the licence was agreed with the author of the first version, and the bundled Bible was checked. Its spelling — “y fué la luz”, “ha dado á su Hijo” — gave it away as the 1909 Reina-Valera, in the public domain, not the copyrighted 1960 edition it was labelled as. It was renamed, with a migration for existing installs.",
+          es: "Antes de abrir el repositorio se revisó toda su historia en busca de claves, tokens y rutas locales, la licencia se acordó con el autor de la primera versión y se verificó la Biblia incluida. Su ortografía —«y fué la luz», «ha dado á su Hijo»— la delató como la Reina-Valera de 1909, de dominio público, y no la edición de 1960, con derechos de autor, que decía ser. Se le cambió el nombre, con una migración para las instalaciones existentes.",
+        },
+      },
+      {
+        title: { en: "A space in the path", es: "Un espacio en la ruta" },
+        body: {
+          en: "The Linux packages were tested in containers with Chromium’s sandbox really on — the end-to-end suite turns it off. That caught a .deb that wouldn’t start: installed under “/opt/Lumina Live”, the sandbox helper’s path was split at the space. It now installs to /opt/lumina-live and keeps the product name in the menu.",
+          es: "Los paquetes de Linux se probaron en contenedores con el sandbox de Chromium activado de verdad (la suite end-to-end lo apaga). Así apareció un .deb que no arrancaba: instalado en “/opt/Lumina Live”, la ruta del helper del sandbox se partía en el espacio. Ahora se instala en /opt/lumina-live y conserva el nombre del producto en el menú.",
+        },
+      },
+    ],
+    result: {
+      en: [
+        "Released as open source on 23 October 2026: version 2.2.0-beta.4, with installers for Windows, macOS and Linux — Linux still marked experimental.",
+        "403 unit tests and 104 end-to-end tests, the end-to-end suite run against the packaged app.",
+        "Next: the stable 2.2.0, once this beta has run a real church service.",
+      ],
+      es: [
+        "Publicado como código abierto el 23 de octubre de 2026: versión 2.2.0-beta.4, con instaladores para Windows, macOS y Linux (Linux todavía experimental).",
+        "403 tests unitarios y 104 end-to-end, la suite end-to-end corrida contra la app empaquetada.",
+        "Lo que sigue: la 2.2.0 estable, cuando esta beta haya pasado por un culto real.",
+      ],
+    },
+  },
+  {
     slug: "hr-platform",
     title: { en: "HR & admin platform", es: "Plataforma de RR. HH." },
     client: { en: "Italian Adventist Church Union", es: "Unión Italiana de Iglesias Adventistas" },
@@ -461,131 +586,6 @@ export const projects: Project[] = [
       es: [
         "Proveedores: análisis completo y un prototipo funcionando frente a sus usuarios en la primera semana.",
         "VID: 20 problemas rastreados hasta su causa, código documentado y un entorno local que cualquiera del equipo puede reproducir.",
-      ],
-    },
-  },
-  {
-    slug: "lumina-live",
-    title: { en: "Lumina Live", es: "Lumina Live" },
-    client: { en: "Open source, for churches", es: "Código abierto, para iglesias" },
-    period: { from: "2026-07" },
-    role: { en: "Author and maintainer", es: "Autor y mantenedor" },
-    summary: {
-      en: "Free, open-source projection software for church services — slides, video, the Bible and timers on a second screen — built to replace EasyWorship. Public since October 2026.",
-      es: "Software libre de proyección para cultos —diapositivas, video, la Biblia y temporizadores en una segunda pantalla—, hecho para reemplazar a EasyWorship. Público desde octubre de 2026.",
-    },
-    lede: {
-      en: "During a service, one person runs the screen: a hymn, a Bible passage, the sermon slides, a video. Lumina Live is the desktop app for that job — a control window for the operator, a projection window for everyone else — and since October 2026 it is open source, with installers for Windows, macOS and Linux.",
-      es: "Durante un culto, una persona maneja la pantalla: un himno, un pasaje bíblico, las diapositivas del sermón, un video. Lumina Live es la app de escritorio para esa tarea —una ventana de control para quien opera y una de proyección para todos los demás— y desde octubre de 2026 es de código abierto, con instaladores para Windows, macOS y Linux.",
-    },
-    openSource: {
-      repo: "https://github.com/NicolasAmorosi/lumina-live",
-      website: "https://lumina-live-site.vercel.app",
-    },
-    facts: [
-      { label: { en: "License", es: "Licencia" }, value: { en: "GPL-3.0", es: "GPL-3.0" } },
-      { label: { en: "Runs on", es: "Corre en" }, value: { en: "Windows, macOS, Linux", es: "Windows, macOS, Linux" } },
-      { label: { en: "Automated tests", es: "Tests automatizados" }, value: { en: "507", es: "507" } },
-      { label: { en: "Version", es: "Versión" }, value: { en: "2.2 beta", es: "2.2 beta" } },
-    ],
-    stack: [
-      "Electron",
-      "TypeScript",
-      "React 19",
-      "electron-vite",
-      "Tailwind CSS 4",
-      "Zustand",
-      "SQLite",
-      "Drizzle",
-      "FTS5",
-      "LibreOffice",
-      "pdf.js",
-      "FFmpeg",
-      "Vitest",
-      "Playwright",
-      "electron-builder",
-    ],
-    figure: "projection",
-    problem: {
-      en: [
-        "Lumina Live — called WorshipApp until October 2026 — was built to replace EasyWorship. It is the third attempt at it: an earlier project, now archived, and a plain-JavaScript version came first.",
-        "Operators already know EasyWorship’s two-step flow — pick an item, check it in the preview, only then send it live — so the replacement keeps it.",
-      ],
-      es: [
-        "Lumina Live —WorshipApp hasta octubre de 2026— nació para reemplazar a EasyWorship. Es el tercer intento: antes hubo un proyecto, hoy archivado, y una versión en JavaScript plano.",
-        "Quienes operan ya conocen el flujo en dos pasos de EasyWorship —elegir, revisarlo en la vista previa y recién entonces mandarlo en vivo—, así que el reemplazo lo conserva.",
-      ],
-    },
-    constraints: {
-      en: [
-        "Runs on Windows, macOS and Linux; developed on a Mac.",
-        "Live use: if the projector disconnects, the picture comes back by itself when it reconnects; if the projection window closes, it returns exactly as it was.",
-        "Offline: everything local, including the Bible text and its search.",
-        "Slides arrive as PowerPoint files — among them .pps hymnals that advance on their own, with the music embedded.",
-        "Open source under GPL-3.0: the code, its documentation and its tests are public, in English, for anyone who wants to contribute.",
-      ],
-      es: [
-        "Corre en Windows, macOS y Linux; desarrollada en una Mac.",
-        "Uso en vivo: si el proyector se desconecta, la imagen vuelve sola al reconectarlo; si la ventana de proyección se cierra, vuelve exactamente como estaba.",
-        "Sin conexión: todo local, incluido el texto bíblico y su búsqueda.",
-        "Las diapositivas llegan como archivos de PowerPoint, entre ellos himnarios .pps que avanzan solos y traen la música adentro.",
-        "Código abierto bajo GPL-3.0: el código, su documentación y sus tests son públicos, en inglés, para quien quiera contribuir.",
-      ],
-    },
-    built: {
-      en: [
-        "An Electron app with a strict split: the main process owns state and the database, the operator works in a control window, and the projection window is a pure function of the last output it received. Reopen it and the main process replays that output — the screen comes back exactly as it was.",
-        "Secure defaults kept on — sandboxed renderers, web security enabled — with local files served through a custom worship:// protocol by id, never by path.",
-        "SQLite with Drizzle for service programmes, the media library and the Bible — the public-domain Reina-Valera 1909 ships with it, other versions import from five formats — with FTS5 full-text search that ignores accents, so typing “senor” finds “Señor”.",
-        "Any video or audio plays: whatever Chromium can’t decode is converted in the background by a bundled FFmpeg, without touching the original. The interface speaks English, Spanish, Italian and Portuguese, and the dictionaries are typed against each other, so a missing string doesn’t compile.",
-      ],
-      es: [
-        "Una app Electron con una separación estricta: el proceso principal es dueño del estado y la base de datos, quien opera trabaja en una ventana de control, y la ventana de proyección es una función pura de la última salida que recibió. Si se reabre, el proceso principal reenvía esa salida y la pantalla vuelve exactamente como estaba.",
-        "Valores seguros por defecto —renderers en sandbox, web security activado—, con los archivos locales servidos por un protocolo propio worship:// por id, nunca por ruta.",
-        "SQLite con Drizzle para programas de culto, la biblioteca de medios y la Biblia —viene con la Reina-Valera 1909, de dominio público, y otras versiones se importan desde cinco formatos—, con búsqueda de texto completo FTS5 que ignora acentos: escribir “senor” encuentra “Señor”.",
-        "Cualquier video o audio se reproduce: lo que Chromium no puede decodificar lo convierte en segundo plano un FFmpeg incluido, sin tocar el original. La interfaz está en español, inglés, italiano y portugués, y los diccionarios se tipan entre sí: un texto faltante no compila.",
-      ],
-    },
-    hard: [
-      {
-        title: { en: "One typed IPC contract", es: "Un único contrato IPC tipado" },
-        body: {
-          en: "Every message between processes is declared once, in a single contract type. A missing or mistyped handler doesn’t compile, and errors travel back as a typed result instead of exceptions crossing process boundaries.",
-          es: "Cada mensaje entre procesos se declara una sola vez, en un único tipo de contrato. Un handler faltante o mal tipado no compila, y los errores vuelven como un resultado tipado en lugar de excepciones cruzando procesos.",
-        },
-      },
-      {
-        title: { en: "PowerPoint without PowerPoint", es: "PowerPoint sin PowerPoint" },
-        body: {
-          en: "Automating PowerPoint over COM tied the app to Office. The current pipeline converts .pptx to PDF with headless LibreOffice, renders each page to WebP with pdf.js and caches the result by content — sidestepping the fact that LibreOffice exports only the first slide to PNG. Slide timings and audio are read straight from the presentation’s XML.",
-          es: "Automatizar PowerPoint por COM ataba la app a Office. El pipeline actual convierte .pptx a PDF con LibreOffice headless, renderiza cada página a WebP con pdf.js y cachea el resultado por contenido, esquivando que LibreOffice exporta a PNG solo la primera diapositiva. Los tiempos y el audio se leen directo del XML de la presentación.",
-        },
-      },
-      {
-        title: { en: "Reading it as a stranger would", es: "Leerlo como un desconocido" },
-        body: {
-          en: "Before the repository went public, its whole history was swept for keys, tokens and local paths, the licence was agreed with the author of the first version, and the bundled Bible was checked. Its spelling — “y fué la luz”, “ha dado á su Hijo” — gave it away as the 1909 Reina-Valera, in the public domain, not the copyrighted 1960 edition it was labelled as. It was renamed, with a migration for existing installs.",
-          es: "Antes de abrir el repositorio se revisó toda su historia en busca de claves, tokens y rutas locales, la licencia se acordó con el autor de la primera versión y se verificó la Biblia incluida. Su ortografía —«y fué la luz», «ha dado á su Hijo»— la delató como la Reina-Valera de 1909, de dominio público, y no la edición de 1960, con derechos de autor, que decía ser. Se le cambió el nombre, con una migración para las instalaciones existentes.",
-        },
-      },
-      {
-        title: { en: "A space in the path", es: "Un espacio en la ruta" },
-        body: {
-          en: "The Linux packages were tested in containers with Chromium’s sandbox really on — the end-to-end suite turns it off. That caught a .deb that wouldn’t start: installed under “/opt/Lumina Live”, the sandbox helper’s path was split at the space. It now installs to /opt/lumina-live and keeps the product name in the menu.",
-          es: "Los paquetes de Linux se probaron en contenedores con el sandbox de Chromium activado de verdad (la suite end-to-end lo apaga). Así apareció un .deb que no arrancaba: instalado en “/opt/Lumina Live”, la ruta del helper del sandbox se partía en el espacio. Ahora se instala en /opt/lumina-live y conserva el nombre del producto en el menú.",
-        },
-      },
-    ],
-    result: {
-      en: [
-        "Released as open source on 23 October 2026: version 2.2.0-beta.4, with installers for Windows, macOS and Linux — Linux still marked experimental.",
-        "403 unit tests and 104 end-to-end tests, the end-to-end suite run against the packaged app.",
-        "Next: the stable 2.2.0, once this beta has run a real church service.",
-      ],
-      es: [
-        "Publicado como código abierto el 23 de octubre de 2026: versión 2.2.0-beta.4, con instaladores para Windows, macOS y Linux (Linux todavía experimental).",
-        "403 tests unitarios y 104 end-to-end, la suite end-to-end corrida contra la app empaquetada.",
-        "Lo que sigue: la 2.2.0 estable, cuando esta beta haya pasado por un culto real.",
       ],
     },
   },
