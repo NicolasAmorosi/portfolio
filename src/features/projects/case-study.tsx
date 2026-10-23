@@ -36,6 +36,21 @@ export async function CaseStudy({ project }: { project: Project }) {
           <p className="mt-10 text-ui text-ink-2 sm:mt-14">{project.client[locale]}</p>
           <h1 className="type-display mt-3 text-[clamp(3.6rem,13vw,10rem)]">{project.title[locale]}</h1>
           <p className="mt-8 max-w-[40ch] text-lg leading-[1.35] sm:text-[1.75rem] sm:leading-[1.3]">{project.lede[locale]}</p>
+          {project.openSource ? (
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-ui">
+              {[
+                { href: project.openSource.repo, label: t("repo") },
+                { href: `${project.openSource.repo}/releases/latest`, label: t("download") },
+                { href: project.openSource.website, label: t("website") },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="link">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
         <MiniFigure kind={project.figure} className="hidden w-full self-end pb-2 text-ink-2 lg:col-span-3 lg:block" />
       </header>
@@ -117,7 +132,7 @@ export async function CaseStudy({ project }: { project: Project }) {
             </ul>
           </Block>
 
-          <p className="text-sm text-ink-2">{t("privacy")}</p>
+          <p className="text-sm text-ink-2">{t(project.openSource ? "openSource" : "privacy")}</p>
         </div>
       </div>
 

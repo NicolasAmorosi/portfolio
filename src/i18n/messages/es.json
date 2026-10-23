@@ -32,7 +32,7 @@
   },
   "work": {
     "title": "Trabajo seleccionado",
-    "aside": "El código de mis clientes es privado, así que estas páginas muestran problemas, decisiones y resultados en lugar de código. Con gusto recorro cualquiera en una entrevista.",
+    "aside": "El código de mis clientes es privado, así que estas páginas muestran problemas, decisiones y resultados en lugar de código; la excepción es Lumina Live, que es de código abierto. Con gusto recorro cualquiera en una entrevista.",
     "read": "Leer el caso",
     "otherTitle": "También construí"
   },
@@ -82,7 +82,11 @@
     "result": "Resultado",
     "seeAlso": "Leer: {title}",
     "next": "Siguiente caso",
-    "privacy": "El código pertenece al cliente y es privado. Las figuras son ilustraciones con datos de ejemplo; en esta página no aparece ningún registro real."
+    "privacy": "El código pertenece al cliente y es privado. Las figuras son ilustraciones con datos de ejemplo; en esta página no aparece ningún registro real.",
+    "repo": "Código en GitHub",
+    "download": "Descargar",
+    "website": "Sitio del proyecto",
+    "openSource": "Este proyecto es de código abierto: el código, los issues y las versiones son públicos en GitHub. Las figuras son ilustraciones."
   },
   "figures": {
     "scopes": {
