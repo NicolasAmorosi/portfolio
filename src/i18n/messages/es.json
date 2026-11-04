@@ -140,7 +140,7 @@
       "reconcileNote": "Totales contrastados con el sistema viejo"
     },
     "projection": {
-      "caption": "La ventana de proyección solo dibuja la última salida que recibió, así que siempre se puede reconstruir. Las diapositivas pasan por LibreOffice y pdf.js.",
+      "caption": "La ventana de proyección solo dibuja la última salida que recibió, así que siempre se puede reconstruir. Las diapositivas nunca se convierten: la app lee cada presentación ella misma y el renderer la dibuja.",
       "control": "Ventana de control",
       "controlNote": "Quien opera encola canciones, pasajes, diapositivas",
       "main": "Proceso principal",
@@ -149,7 +149,7 @@
       "screenNote": "Una función pura de la última salida",
       "ipc": "Contrato IPC tipado",
       "pipeline": "Pipeline de diapositivas",
-      "cache": "Cacheado por contenido"
+      "drawn": "Se dibuja, no se convierte"
     }
   },
   "footer": {

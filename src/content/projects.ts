@@ -278,8 +278,8 @@ export const projects: Project[] = [
     facts: [
       { label: { en: "License", es: "Licencia" }, value: { en: "GPL-3.0", es: "GPL-3.0" } },
       { label: { en: "Runs on", es: "Corre en" }, value: { en: "Windows, macOS, Linux", es: "Windows, macOS, Linux" } },
-      { label: { en: "Automated tests", es: "Tests automatizados" }, value: { en: "507", es: "507" } },
-      { label: { en: "Version", es: "Versión" }, value: { en: "2.2 beta", es: "2.2 beta" } },
+      { label: { en: "Automated tests", es: "Tests automatizados" }, value: { en: "661", es: "661" } },
+      { label: { en: "Version", es: "Versión" }, value: { en: "2.2", es: "2.2" } },
     ],
     stack: [
       "Electron",
@@ -291,9 +291,11 @@ export const projects: Project[] = [
       "SQLite",
       "Drizzle",
       "FTS5",
-      "LibreOffice",
       "pdf.js",
+      "libmpv",
+      "C++",
       "FFmpeg",
+      "electron-updater",
       "Vitest",
       "Playwright",
       "electron-builder",
@@ -314,14 +316,14 @@ export const projects: Project[] = [
         "Runs on Windows, macOS and Linux; developed on a Mac.",
         "Live use: if the projector disconnects, the picture comes back by itself when it reconnects; if the projection window closes, it returns exactly as it was.",
         "Offline: everything local, including the Bible text and its search.",
-        "Slides arrive as PowerPoint files — among them .pps hymnals that advance on their own, with the music embedded.",
+        "Slides arrive as PowerPoint files — among them .pps hymnals that advance on their own, with the music embedded — and must open with nothing else installed.",
         "Open source under GPL-3.0: the code, its documentation and its tests are public, in English, for anyone who wants to contribute.",
       ],
       es: [
         "Corre en Windows, macOS y Linux; desarrollada en una Mac.",
         "Uso en vivo: si el proyector se desconecta, la imagen vuelve sola al reconectarlo; si la ventana de proyección se cierra, vuelve exactamente como estaba.",
         "Sin conexión: todo local, incluido el texto bíblico y su búsqueda.",
-        "Las diapositivas llegan como archivos de PowerPoint, entre ellos himnarios .pps que avanzan solos y traen la música adentro.",
+        "Las diapositivas llegan como archivos de PowerPoint, entre ellos himnarios .pps que avanzan solos y traen la música adentro, y tienen que abrir sin instalar nada más.",
         "Código abierto bajo GPL-3.0: el código, su documentación y sus tests son públicos, en inglés, para quien quiera contribuir.",
       ],
     },
@@ -330,13 +332,13 @@ export const projects: Project[] = [
         "An Electron app with a strict split: the main process owns state and the database, the operator works in a control window, and the projection window is a pure function of the last output it received. Reopen it and the main process replays that output — the screen comes back exactly as it was.",
         "Secure defaults kept on — sandboxed renderers, web security enabled — with local files served through a custom worship:// protocol by id, never by path.",
         "SQLite with Drizzle for service programmes, the media library and the Bible — the public-domain Reina-Valera 1909 ships with it, other versions import from five formats — with FTS5 full-text search that ignores accents, so typing “senor” finds “Señor”.",
-        "Any video or audio plays: whatever Chromium can’t decode is converted in the background by a bundled FFmpeg, without touching the original. The interface speaks English, Spanish, Italian and Portuguese, and the dictionaries are typed against each other, so a missing string doesn’t compile.",
+        "Any video or audio plays straight from the original file: what Chromium can’t decode — AVI, WMV, WMA, ProRes — goes through the app’s own media engine, built on libmpv, with the same picture on the projector and the monitors. The interface speaks English, Spanish, Italian and Portuguese, and the dictionaries are typed against each other, so a missing string doesn’t compile.",
       ],
       es: [
         "Una app Electron con una separación estricta: el proceso principal es dueño del estado y la base de datos, quien opera trabaja en una ventana de control, y la ventana de proyección es una función pura de la última salida que recibió. Si se reabre, el proceso principal reenvía esa salida y la pantalla vuelve exactamente como estaba.",
         "Valores seguros por defecto —renderers en sandbox, web security activado—, con los archivos locales servidos por un protocolo propio worship:// por id, nunca por ruta.",
         "SQLite con Drizzle para programas de culto, la biblioteca de medios y la Biblia —viene con la Reina-Valera 1909, de dominio público, y otras versiones se importan desde cinco formatos—, con búsqueda de texto completo FTS5 que ignora acentos: escribir “senor” encuentra “Señor”.",
-        "Cualquier video o audio se reproduce: lo que Chromium no puede decodificar lo convierte en segundo plano un FFmpeg incluido, sin tocar el original. La interfaz está en español, inglés, italiano y portugués, y los diccionarios se tipan entre sí: un texto faltante no compila.",
+        "Cualquier video o audio se reproduce directo del archivo original: lo que Chromium no puede decodificar —AVI, WMV, WMA, ProRes— pasa por un motor de medios propio, construido sobre libmpv, con la misma imagen en el proyector y en los monitores. La interfaz está en español, inglés, italiano y portugués, y los diccionarios se tipan entre sí: un texto faltante no compila.",
       ],
     },
     hard: [
@@ -350,8 +352,8 @@ export const projects: Project[] = [
       {
         title: { en: "PowerPoint without PowerPoint", es: "PowerPoint sin PowerPoint" },
         body: {
-          en: "Automating PowerPoint over COM tied the app to Office. The current pipeline converts .pptx to PDF with headless LibreOffice, renders each page to WebP with pdf.js and caches the result by content — sidestepping the fact that LibreOffice exports only the first slide to PNG. Slide timings and audio are read straight from the presentation’s XML.",
-          es: "Automatizar PowerPoint por COM ataba la app a Office. El pipeline actual convierte .pptx a PDF con LibreOffice headless, renderiza cada página a WebP con pdf.js y cachea el resultado por contenido, esquivando que LibreOffice exporta a PNG solo la primera diapositiva. Los tiempos y el audio se leen directo del XML de la presentación.",
+          en: "Automating PowerPoint over COM tied the app to Office; converting through headless LibreOffice meant one more install and a wait before every new deck. Now the app reads presentations itself — .pptx, the older binary .ppt and .pps, and .odp — on a worker thread, into a model of what to paint on each slide, which React draws. EMF and WMF pictures become SVG, embedded fonts are rebuilt as TrueType, and a hymnal of .pps pictures opens at once, served straight from the file. Timings, transitions and each slide’s sound come from the file too.",
+          es: "Automatizar PowerPoint por COM ataba la app a Office; convertir con LibreOffice headless sumaba otra instalación y una espera antes de cada presentación nueva. Ahora la app lee las presentaciones ella misma —.pptx, los viejos .ppt y .pps binarios y .odp— en un worker thread, y arma un modelo de lo que hay que pintar en cada diapositiva, que dibuja React. Las imágenes EMF y WMF pasan a SVG, las fuentes incrustadas se reconstruyen como TrueType y un himnario de .pps hechos de imágenes abre al instante, servido directo desde el archivo. Los tiempos, las transiciones y el sonido de cada diapositiva también salen del archivo.",
         },
       },
       {
@@ -371,14 +373,14 @@ export const projects: Project[] = [
     ],
     result: {
       en: [
-        "Released as open source on 23 October 2026: version 2.2.0-beta.4, with installers for Windows, macOS and Linux — Linux still marked experimental.",
-        "403 unit tests and 104 end-to-end tests, the end-to-end suite run against the packaged app.",
-        "Next: the stable 2.2.0, once this beta has run a real church service.",
+        "Released as open source on 23 October 2026, as 2.2.0-beta.4. The stable 2.2.0 followed on 4 November, with installers for Windows, macOS and Linux — Linux no longer experimental.",
+        "From 2.2.0 on, the app updates itself: it checks when it opens, downloads only when asked, and asks first if something is on the projector. Nothing about updates ever reaches the projection window.",
+        "514 unit tests and 147 end-to-end tests; before the release, the end-to-end suite ran against the packaged app on macOS, Windows and Linux.",
       ],
       es: [
-        "Publicado como código abierto el 23 de octubre de 2026: versión 2.2.0-beta.4, con instaladores para Windows, macOS y Linux (Linux todavía experimental).",
-        "403 tests unitarios y 104 end-to-end, la suite end-to-end corrida contra la app empaquetada.",
-        "Lo que sigue: la 2.2.0 estable, cuando esta beta haya pasado por un culto real.",
+        "Publicado como código abierto el 23 de octubre de 2026, como 2.2.0-beta.4. La 2.2.0 estable llegó el 4 de noviembre, con instaladores para Windows, macOS y Linux (Linux ya no es experimental).",
+        "Desde la 2.2.0 la app se actualiza sola: busca al abrirse, descarga solo cuando se lo piden y pregunta antes si hay algo en el proyector. Nada de las actualizaciones llega nunca a la ventana de proyección.",
+        "514 tests unitarios y 147 end-to-end; antes del release, la suite end-to-end corrió contra la app empaquetada en macOS, Windows y Linux.",
       ],
     },
   },

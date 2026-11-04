@@ -140,7 +140,7 @@
       "reconcileNote": "Totals checked against the old system"
     },
     "projection": {
-      "caption": "The projection window only renders the last output it received, so it can always be rebuilt. Slides take a detour through LibreOffice and pdf.js.",
+      "caption": "The projection window only renders the last output it received, so it can always be rebuilt. Slides are never converted: the app reads each deck itself and the renderer draws it.",
       "control": "Control window",
       "controlNote": "The operator queues songs, passages, slides",
       "main": "Main process",
@@ -149,7 +149,7 @@
       "screenNote": "A pure function of the last output",
       "ipc": "Typed IPC contract",
       "pipeline": "Slides pipeline",
-      "cache": "Cached by content"
+      "drawn": "Drawn, not converted"
     }
   },
   "footer": {

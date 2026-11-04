@@ -29,7 +29,7 @@ function Link({ label, oneWay = false }: { label: string; oneWay?: boolean }) {
 
 export async function ProjectionFigure() {
   const t = await getTranslations("figures.projection");
-  const pipeline = [".pptx", "LibreOffice", "PDF", "pdf.js", "WebP"];
+  const pipeline = [".pptx · .ppt · .odp", "Worker thread", "SlideModel", "SQLite", "React"];
 
   return (
     <Figure caption={t("caption")}>
@@ -63,7 +63,7 @@ export async function ProjectionFigure() {
               {i < pipeline.length - 1 ? <span aria-hidden="true" className="text-ink-2">→</span> : null}
             </li>
           ))}
-          <li className="text-ink-2">({t("cache")})</li>
+          <li className="text-ink-2">({t("drawn")})</li>
         </ol>
       </div>
     </Figure>
