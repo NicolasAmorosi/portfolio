@@ -17,12 +17,12 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  // WorshipApp was renamed Lumina Live when it went open source (2026-10-23).
+  // WorshipApp became Lumina Live when it went open source (2026-10-23), then Himnova Live (2026-11-11).
   async redirects() {
-    return [
-      { source: "/projects/worshipapp", destination: "/projects/lumina-live", permanent: true },
-      { source: "/es/projects/worshipapp", destination: "/es/projects/lumina-live", permanent: true },
-    ];
+    return ["worshipapp", "lumina-live"].flatMap((old) => [
+      { source: `/projects/${old}`, destination: "/projects/himnova-live", permanent: true },
+      { source: `/es/projects/${old}`, destination: "/es/projects/himnova-live", permanent: true },
+    ]);
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

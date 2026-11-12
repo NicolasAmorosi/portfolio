@@ -33,7 +33,7 @@ export type Project = {
   openSource?: { repo: string; website: string };
 };
 
-export type ProjectSlug = "libretto" | "legacy-migration" | "hr-platform" | "university-systems" | "lumina-live";
+export type ProjectSlug = "libretto" | "legacy-migration" | "hr-platform" | "university-systems" | "himnova-live";
 
 export const projects: Project[] = [
   {
@@ -258,28 +258,28 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "lumina-live",
-    title: { en: "Lumina Live", es: "Lumina Live" },
+    slug: "himnova-live",
+    title: { en: "Himnova Live", es: "Himnova Live" },
     client: { en: "Open source, for churches", es: "Código abierto, para iglesias" },
     period: { from: "2026-07" },
     role: { en: "Author and maintainer", es: "Autor y mantenedor" },
     summary: {
-      en: "Free, open-source projection software for church services — slides, video, the Bible and timers on a second screen — built to replace EasyWorship. Public since October 2026.",
-      es: "Software libre de proyección para cultos —diapositivas, video, la Biblia y temporizadores en una segunda pantalla—, hecho para reemplazar a EasyWorship. Público desde octubre de 2026.",
+      en: "Free, open-source projection software for church services — slides, video, the Bible, song lyrics and timers on a second screen — built to replace EasyWorship. Public since October 2026.",
+      es: "Software libre de proyección para cultos —diapositivas, video, la Biblia, letras de canciones y temporizadores en una segunda pantalla—, hecho para reemplazar a EasyWorship. Público desde octubre de 2026.",
     },
     lede: {
-      en: "During a service, one person runs the screen: a hymn, a Bible passage, the sermon slides, a video. Lumina Live is the desktop app for that job — a control window for the operator, a projection window for everyone else — and since October 2026 it is open source, with installers for Windows, macOS and Linux.",
-      es: "Durante un culto, una persona maneja la pantalla: un himno, un pasaje bíblico, las diapositivas del sermón, un video. Lumina Live es la app de escritorio para esa tarea —una ventana de control para quien opera y una de proyección para todos los demás— y desde octubre de 2026 es de código abierto, con instaladores para Windows, macOS y Linux.",
+      en: "During a service, one person runs the screen: a hymn, a Bible passage, the sermon slides, a video. Himnova Live is the desktop app for that job — a control window for the operator, a projection window for everyone else — and since October 2026 it is open source, with installers for Windows, macOS and Linux.",
+      es: "Durante un culto, una persona maneja la pantalla: un himno, un pasaje bíblico, las diapositivas del sermón, un video. Himnova Live es la app de escritorio para esa tarea —una ventana de control para quien opera y una de proyección para todos los demás— y desde octubre de 2026 es de código abierto, con instaladores para Windows, macOS y Linux.",
     },
     openSource: {
-      repo: "https://github.com/NicolasAmorosi/lumina-live",
-      website: "https://lumina-live-site.vercel.app",
+      repo: "https://github.com/NicolasAmorosi/himnova-live",
+      website: "https://himnova-live.vercel.app",
     },
     facts: [
       { label: { en: "License", es: "Licencia" }, value: { en: "GPL-3.0", es: "GPL-3.0" } },
       { label: { en: "Runs on", es: "Corre en" }, value: { en: "Windows, macOS, Linux", es: "Windows, macOS, Linux" } },
-      { label: { en: "Automated tests", es: "Tests automatizados" }, value: { en: "661", es: "661" } },
-      { label: { en: "Version", es: "Versión" }, value: { en: "2.2", es: "2.2" } },
+      { label: { en: "Automated tests", es: "Tests automatizados" }, value: { en: "1,229", es: "1.229" } },
+      { label: { en: "Version", es: "Versión" }, value: { en: "2.8", es: "2.8" } },
     ],
     stack: [
       "Electron",
@@ -295,6 +295,7 @@ export const projects: Project[] = [
       "libmpv",
       "C++",
       "FFmpeg",
+      "NDI",
       "electron-updater",
       "Vitest",
       "Playwright",
@@ -303,11 +304,11 @@ export const projects: Project[] = [
     figure: "projection",
     problem: {
       en: [
-        "Lumina Live — called WorshipApp until October 2026 — was built to replace EasyWorship. It is the third attempt at it: an earlier project, now archived, and a plain-JavaScript version came first.",
+        "Himnova Live — called WorshipApp until October 2026 and Lumina Live until November — was built to replace EasyWorship. It is the third attempt at it: an earlier project, now archived, and a plain-JavaScript version came first.",
         "Operators already know EasyWorship’s two-step flow — pick an item, check it in the preview, only then send it live — so the replacement keeps it.",
       ],
       es: [
-        "Lumina Live —WorshipApp hasta octubre de 2026— nació para reemplazar a EasyWorship. Es el tercer intento: antes hubo un proyecto, hoy archivado, y una versión en JavaScript plano.",
+        "Himnova Live —WorshipApp hasta octubre de 2026 y Lumina Live hasta noviembre— nació para reemplazar a EasyWorship. Es el tercer intento: antes hubo un proyecto, hoy archivado, y una versión en JavaScript plano.",
         "Quienes operan ya conocen el flujo en dos pasos de EasyWorship —elegir, revisarlo en la vista previa y recién entonces mandarlo en vivo—, así que el reemplazo lo conserva.",
       ],
     },
@@ -331,14 +332,16 @@ export const projects: Project[] = [
       en: [
         "An Electron app with a strict split: the main process owns state and the database, the operator works in a control window, and the projection window is a pure function of the last output it received. Reopen it and the main process replays that output — the screen comes back exactly as it was.",
         "Secure defaults kept on — sandboxed renderers, web security enabled — with local files served through a custom worship:// protocol by id, never by path.",
-        "SQLite with Drizzle for service programmes, the media library and the Bible — the public-domain Reina-Valera 1909 ships with it, other versions import from five formats — with FTS5 full-text search that ignores accents, so typing “senor” finds “Señor”.",
+        "SQLite with Drizzle for service programmes, the media library and the Bible — nine public-domain or freely licensed versions in four languages ship with it, others import from five formats — with FTS5 full-text search that ignores accents, so typing “senor” finds “Señor”.",
         "Any video or audio plays straight from the original file: what Chromium can’t decode — AVI, WMV, WMA, ProRes — goes through the app’s own media engine, built on libmpv, with the same picture on the projector and the monitors. The interface speaks English, Spanish, Italian and Portuguese, and the dictionaries are typed against each other, so a missing string doesn’t compile.",
+        "Song lyrics, typed or pasted, become slides, and every slide of a song is drawn at the same size: the largest at which all of them fit. Songs import from EasyWorship 6, OpenLP, OpenLyrics, SongSelect and ChordPro, and a stage screen shows the musicians the chords the projector never shows. For streaming, the projector’s picture and the app’s sound go out over NDI to OBS or vMix.",
       ],
       es: [
         "Una app Electron con una separación estricta: el proceso principal es dueño del estado y la base de datos, quien opera trabaja en una ventana de control, y la ventana de proyección es una función pura de la última salida que recibió. Si se reabre, el proceso principal reenvía esa salida y la pantalla vuelve exactamente como estaba.",
         "Valores seguros por defecto —renderers en sandbox, web security activado—, con los archivos locales servidos por un protocolo propio worship:// por id, nunca por ruta.",
-        "SQLite con Drizzle para programas de culto, la biblioteca de medios y la Biblia —viene con la Reina-Valera 1909, de dominio público, y otras versiones se importan desde cinco formatos—, con búsqueda de texto completo FTS5 que ignora acentos: escribir “senor” encuentra “Señor”.",
+        "SQLite con Drizzle para programas de culto, la biblioteca de medios y la Biblia —vienen nueve versiones de dominio público o de licencia libre en cuatro idiomas, y otras se importan desde cinco formatos—, con búsqueda de texto completo FTS5 que ignora acentos: escribir “senor” encuentra “Señor”.",
         "Cualquier video o audio se reproduce directo del archivo original: lo que Chromium no puede decodificar —AVI, WMV, WMA, ProRes— pasa por un motor de medios propio, construido sobre libmpv, con la misma imagen en el proyector y en los monitores. La interfaz está en español, inglés, italiano y portugués, y los diccionarios se tipan entre sí: un texto faltante no compila.",
+        "Las letras de las canciones, escritas o pegadas, se vuelven diapositivas, y todas las de una canción se dibujan al mismo tamaño: el más grande en el que entran todas. Las canciones se importan desde EasyWorship 6, OpenLP, OpenLyrics, SongSelect y ChordPro, y una pantalla de escenario les muestra a los músicos los acordes que el proyector nunca muestra. Para transmitir, la imagen del proyector y el sonido de la app salen por NDI hacia OBS o vMix.",
       ],
     },
     hard: [
@@ -366,21 +369,21 @@ export const projects: Project[] = [
       {
         title: { en: "A space in the path", es: "Un espacio en la ruta" },
         body: {
-          en: "The Linux packages were tested in containers with Chromium’s sandbox really on — the end-to-end suite turns it off. That caught a .deb that wouldn’t start: installed under “/opt/Lumina Live”, the sandbox helper’s path was split at the space. It now installs to /opt/lumina-live and keeps the product name in the menu.",
-          es: "Los paquetes de Linux se probaron en contenedores con el sandbox de Chromium activado de verdad (la suite end-to-end lo apaga). Así apareció un .deb que no arrancaba: instalado en “/opt/Lumina Live”, la ruta del helper del sandbox se partía en el espacio. Ahora se instala en /opt/lumina-live y conserva el nombre del producto en el menú.",
+          en: "The Linux packages were tested in containers with Chromium’s sandbox really on — the end-to-end suite turns it off. That caught a .deb that wouldn’t start: installed under a folder named after the product, with a space in it, the sandbox helper’s path was split at the space. It now installs to /opt/himnova-live and keeps the product name in the menu.",
+          es: "Los paquetes de Linux se probaron en contenedores con el sandbox de Chromium activado de verdad (la suite end-to-end lo apaga). Así apareció un .deb que no arrancaba: instalado en una carpeta con el nombre del producto, que tiene un espacio, la ruta del helper del sandbox se partía en el espacio. Ahora se instala en /opt/himnova-live y conserva el nombre del producto en el menú.",
         },
       },
     ],
     result: {
       en: [
-        "Released as open source on 23 October 2026, as 2.2.0-beta.4. The stable 2.2.0 followed on 4 November, with installers for Windows, macOS and Linux — Linux no longer experimental.",
-        "From 2.2.0 on, the app updates itself: it checks when it opens, downloads only when asked, and asks first if something is on the projector. Nothing about updates ever reaches the projection window.",
-        "514 unit tests and 147 end-to-end tests; before the release, the end-to-end suite ran against the packaged app on macOS, Windows and Linux.",
+        "Released as open source on 23 October 2026, as 2.2.0-beta.4. The stable 2.2.0 followed on 4 November, with installers for Windows, macOS and Linux — Linux no longer experimental. Nine more releases came out in the following week, up to 2.8.0 on 11 November, when it was renamed Himnova Live.",
+        "From 2.2.0 on, the app updates itself: it checks when it opens, downloads only when asked, and asks first if something is on the projector. Nothing about updates ever reaches the projection window. Installs under the old name moved to the new one through that same updater.",
+        "922 unit tests and 307 end-to-end tests; before 2.8.0, the end-to-end suite ran against the packaged app on macOS, Windows and Linux.",
       ],
       es: [
-        "Publicado como código abierto el 23 de octubre de 2026, como 2.2.0-beta.4. La 2.2.0 estable llegó el 4 de noviembre, con instaladores para Windows, macOS y Linux (Linux ya no es experimental).",
-        "Desde la 2.2.0 la app se actualiza sola: busca al abrirse, descarga solo cuando se lo piden y pregunta antes si hay algo en el proyector. Nada de las actualizaciones llega nunca a la ventana de proyección.",
-        "514 tests unitarios y 147 end-to-end; antes del release, la suite end-to-end corrió contra la app empaquetada en macOS, Windows y Linux.",
+        "Publicado como código abierto el 23 de octubre de 2026, como 2.2.0-beta.4. La 2.2.0 estable llegó el 4 de noviembre, con instaladores para Windows, macOS y Linux (Linux ya no es experimental). En la semana siguiente salieron nueve versiones más, hasta la 2.8.0 del 11 de noviembre, con la que pasó a llamarse Himnova Live.",
+        "Desde la 2.2.0 la app se actualiza sola: busca al abrirse, descarga solo cuando se lo piden y pregunta antes si hay algo en el proyector. Nada de las actualizaciones llega nunca a la ventana de proyección. Las instalaciones con el nombre viejo pasaron al nuevo por ese mismo actualizador.",
+        "922 tests unitarios y 307 end-to-end; antes de la 2.8.0, la suite end-to-end corrió contra la app empaquetada en macOS, Windows y Linux.",
       ],
     },
   },
