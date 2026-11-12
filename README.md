@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/NicolasAmorosi/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/NicolasAmorosi/portfolio/actions/workflows/ci.yml)
 
-Personal site of Nicolás Amorosi, full-stack engineer — **[nicolasamorosi.com](https://nicolasamorosi.com)**.
+Personal site of Nicolás Amorosi, full-stack engineer: **[nicolasamorosi.com](https://nicolasamorosi.com)**.
 
 ![The home page: the name set very large in a condensed typeface, with an annotation about the á character](.github/assets/home-light.png)
 
@@ -10,8 +10,8 @@ Personal site of Nicolás Amorosi, full-stack engineer — **[nicolasamorosi.com
 
 Almost everything I build is private client code, so the site has to show how I think
 rather than link to what I shipped. Its one bold gesture comes from my favourite case
-study: on load the name renders as `NicolÃ¡s` — UTF-8 bytes read as Windows-1252, the way
-old databases spell it — and decodes itself under a highlighter stroke. The rest stays quiet.
+study: on load the name renders as `NicolÃ¡s` (UTF-8 bytes read as Windows-1252, the way
+old databases spell it) and decodes itself under a highlighter stroke. The rest stays quiet.
 
 | Dark, in Spanish | Phone |
 |---|---|
@@ -22,7 +22,7 @@ old databases spell it — and decodes itself under a highlighter stroke. The re
 - **Five case studies** (problem → constraints → what I built → the hard part → result),
   each with its own drawing. Two figures are interactive:
   - an **encoding decoder** that runs the same bytes through UTF-8, strict latin1 and
-    Windows-1252 with the browser's own `TextDecoder` — showing why one fails loudly, one
+    Windows-1252 with the browser's own `TextDecoder`, showing why one fails loudly, one
     fails silently and one gets it right;
   - a **scoped-permissions demo**: one request for grades, answered for a student, a
     teacher and the secretary's office.
@@ -37,7 +37,7 @@ old databases spell it — and decodes itself under a highlighter stroke. The re
   so a raw scroll position would drift). Covered by an end-to-end test that fails without it.
 - **Static everything.** Every page and Open Graph image is prerendered; client JavaScript
   only where something reacts to you.
-- **Light and dark from one palette** with CSS `light-dark()` tokens — no `dark:` variants,
+- **Light and dark from one palette** with CSS `light-dark()` tokens: no `dark:` variants,
   no theme flash.
 
 ## Design system
@@ -45,7 +45,7 @@ old databases spell it — and decodes itself under a highlighter stroke. The re
 | | |
 |---|---|
 | Color | Ink `#13213C` on paper `#F1F2EF`; paper on ink `#0C1322` at night. One accent, a highlighter yellow `#F4D23C`, always *behind* ink. |
-| Type | [Archivo](https://github.com/Omnibus-Type/Archivo) variable — the width axis is the hierarchy: 62% display, 75% headings, 100% text. IBM Plex Mono only for literal code and bytes. Bringhurst's scale. |
+| Type | [Archivo](https://github.com/Omnibus-Type/Archivo) variable. The width axis is the hierarchy: 62% display, 75% headings, 100% text. IBM Plex Mono only for literal code and bytes. Bringhurst's scale. |
 | Layout | A margin column with sticky section titles and a content column. Work is an index of rows, not a grid of cards. |
 | Motion | One orchestrated moment (the decode), once per visit. Everything else answers an action. Respects `prefers-reduced-motion`. |
 
@@ -97,6 +97,6 @@ CI runs lint, type checks, unit and end-to-end tests on every push and pull requ
 
 ## License
 
-The source code is [MIT](LICENSE). The written content — case studies, profile texts and the
-CV — is © Nicolás Amorosi, all rights reserved. Archivo is used under the
+The source code is [MIT](LICENSE). The written content (case studies, profile texts and the
+CV) is © Nicolás Amorosi, all rights reserved. Archivo is used under the
 [SIL Open Font License](src/assets/fonts/OFL.txt).

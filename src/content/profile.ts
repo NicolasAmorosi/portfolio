@@ -7,8 +7,8 @@ export const principles: { title: Localized; body: Localized }[] = [
   {
     title: { en: "Permissions, not booleans", es: "Permisos, no booleanos" },
     body: {
-      en: "Access is a registry of permissions with scopes — own, assigned, all — checked by the server on every request. The interface hides what you can’t do; the API is what stops you.",
-      es: "El acceso es un registro de permisos con alcances —propio, asignado, todo— que el servidor verifica en cada request. La interfaz oculta lo que no podés hacer; quien te frena es la API.",
+      en: "Access is a registry of permissions with scopes (own, assigned, all) checked by the server on every request. The interface hides what you can’t do; the API is what stops you.",
+      es: "El acceso es un registro de permisos con alcances (propio, asignado, todo) que el servidor verifica en cada request. La interfaz oculta lo que no podés hacer; quien te frena es la API.",
     },
   },
   {
@@ -35,14 +35,14 @@ export const principles: { title: Localized; body: Localized }[] = [
   {
     title: { en: "Strict types, shared contracts", es: "Tipos estrictos, contratos compartidos" },
     body: {
-      en: "TypeScript in its strictest settings, and one contracts package shared by API and interface — a breaking change fails the build, not the user.",
+      en: "TypeScript in its strictest settings, and one contracts package shared by API and interface: a breaking change fails the build, not the user.",
       es: "TypeScript en su configuración más estricta y un paquete de contratos compartido entre API e interfaz: un cambio incompatible rompe el build, no al usuario.",
     },
   },
   {
     title: { en: "AI with guardrails", es: "IA con barandas" },
     body: {
-      en: "I work with Claude Code every day — custom skills, MCP servers, a knowledge base per repository. It makes me faster; it doesn’t decide what ships.",
+      en: "I work with Claude Code every day: custom skills, MCP servers, a knowledge base per repository. It makes me faster; it doesn’t decide what ships.",
       es: "Trabajo con Claude Code todos los días: skills propios, servidores MCP, una base de conocimiento por repositorio. Me hace más rápido; no decide qué sale a producción.",
     },
   },
@@ -105,7 +105,7 @@ export const otherWork: { title: Localized; body: Localized; period: Period; sta
   {
     title: { en: "Radio staff absences", es: "Ausencias del personal de una radio" },
     body: {
-      en: "Absence and on-air substitution management for a radio station, with admin-editable permissions — plus a video playlist player for Raspberry Pi screens fed by an ffmpeg pipeline to S3.",
+      en: "Absence and on-air substitution management for a radio station, with admin-editable permissions, plus a video playlist player for Raspberry Pi screens fed by an ffmpeg pipeline to S3.",
       es: "Gestión de ausencias y reemplazos al aire para una radio, con permisos editables por un administrador, más un reproductor de playlists de video para pantallas con Raspberry Pi alimentado por un pipeline de ffmpeg a S3.",
     },
     period: { from: "2025-07", to: "2026-09" },

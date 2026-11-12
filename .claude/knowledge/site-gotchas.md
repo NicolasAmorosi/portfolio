@@ -31,6 +31,6 @@
 ### Language switch must not move the reader
 - Area: `components/layout/locale-switch.tsx`, `app/[locale]/layout.tsx` · Trigger: touching the locale links, navigation or scroll CSS
 - Next treats /en ↔ /es as a new page and scrolls to the top; with `scroll-behavior: smooth` that became a 1-second glide. Fix: `scroll={false}` + restore the element under the header (child-index path from `<main>` + viewport offset) in a layout effect; `data-scroll-behavior="smooth"` on `<html>` (Next 16 opt-in) so route changes jump while in-page anchors still glide.
-- At the very end of a page, switching to a shorter language clamps to the bottom — expected.
+- At the very end of a page, switching to a shorter language clamps to the bottom (expected).
 - Guarded by `e2e/locale-switch.e2e.ts` (fails without the fix, verified). In Playwright use a real `page.mouse.click` on the sticky header: `locator.click()` scrolls it "into view" first and fakes a jump.
 - Last updated: 2026-10-14

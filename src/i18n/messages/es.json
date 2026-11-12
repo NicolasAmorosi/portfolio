@@ -19,7 +19,7 @@
     "present": "hoy"
   },
   "hero": {
-    "intro": "Ingeniero full-stack. Construyo los sistemas con los que funcionan las organizaciones —registros académicos, RR. HH., cuentas a pagar— de punta a punta, desde la base de datos legacy hasta producción. Remoto desde Argentina, en español, inglés e italiano.",
+    "intro": "Ingeniero full-stack. Construyo los sistemas con los que funcionan las organizaciones (registros académicos, RR. HH., cuentas a pagar) de punta a punta, desde la base de datos legacy hasta producción. Remoto desde Argentina, en español, inglés e italiano.",
     "status": "Disponible para puestos remotos full-time. También por contrato.",
     "email": "Escribime",
     "cv": "Descargar CV",
@@ -53,7 +53,7 @@
   },
   "about": {
     "title": "Sobre mí",
-    "p1": "Estudié en la Universidad Adventista del Plata —Analista en Sistemas en 2022, Ingeniero en Sistemas en 2024— y ahí escribí mi primer código productivo, actualizando las aplicaciones Rails de la universidad.",
+    "p1": "Estudié en la Universidad Adventista del Plata (Analista en Sistemas en 2022, Ingeniero en Sistemas en 2024) y ahí escribí mi primer código productivo, actualizando las aplicaciones Rails de la universidad.",
     "p2": "En 2025 me mudé a Roma para encargarme de IT y desarrollo en HopeMedia Italia, el centro de medios de la Unión Italiana de Iglesias Adventistas. Desde agosto de 2026 trabajo en remoto desde Entre Ríos, Argentina, para clientes de Italia y Argentina. Tengo ciudadanía italiana.",
     "p3": "Fuera del trabajo vuelo drones FPV y llevo un registro de reparaciones de cada uno, salgo a correr, mantengo un servidor en casa y estoy armando un rack con ESP32 que riega solo las plantas del balcón.",
     "languages": "Idiomas"

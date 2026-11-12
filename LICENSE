@@ -1,7 +1,7 @@
 The MIT License below covers the source code of this repository.
 
-It does not cover the written content — the texts in src/content and
-src/i18n/messages, and public/nicolas-amorosi-cv.pdf — which is
+It does not cover the written content (the texts in src/content and
+src/i18n/messages, and public/nicolas-amorosi-cv.pdf), which is
 © Nicolás Amorosi, all rights reserved. The Archivo font files in
 src/assets/fonts are distributed under the SIL Open Font License 1.1
 (see src/assets/fonts/OFL.txt).

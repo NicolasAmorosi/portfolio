@@ -26,7 +26,7 @@ export function formatYears(period: Period, presentLabel: string): string {
   return from === to ? from : `${from} – ${to}`;
 }
 
-// Months since Jan 2020 — the origin of the experience timeline.
+// Months since Jan 2020, the origin of the experience timeline.
 export const TIMELINE_ORIGIN = 2020;
 
 export function monthIndex(value: string): number {

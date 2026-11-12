@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
 
   return {
     metadataBase: new URL(site.url),
-    title: { default: t("title"), template: `%s — ${site.name}` },
+    title: { default: t("title"), template: `%s · ${site.name}` },
     description: t("description"),
     authors: [{ name: site.name, url: site.url }],
     creator: site.name,

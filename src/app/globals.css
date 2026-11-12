@@ -2,7 +2,7 @@
 
 /*
  * Design tokens. One palette, two schemes through light-dark(): ink on paper
- * by day, paper on ink by night — components never need `dark:` variants.
+ * by day, paper on ink by night, so components never need `dark:` variants.
  * The highlighter (mark) is the only accent. It is always a background behind
  * ink, never text on paper (it has no contrast there).
  */

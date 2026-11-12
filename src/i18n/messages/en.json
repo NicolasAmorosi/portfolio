@@ -19,7 +19,7 @@
     "present": "present"
   },
   "hero": {
-    "intro": "Full-stack engineer. I build the systems organizations run on — academic records, HR, accounts payable — end to end, from the legacy database to production. Remote from Argentina, working in English, Spanish and Italian.",
+    "intro": "Full-stack engineer. I build the systems organizations run on (academic records, HR, accounts payable) end to end, from the legacy database to production. Remote from Argentina, working in English, Spanish and Italian.",
     "status": "Open to full-time remote roles. Contracts too.",
     "email": "Email me",
     "cv": "Download CV",
@@ -32,7 +32,7 @@
   },
   "work": {
     "title": "Selected work",
-    "aside": "Client code is private, so these pages show problems, decisions and outcomes instead of code — except Himnova Live, which is open source. Happy to walk through any of it in an interview.",
+    "aside": "Client code is private, so these pages show problems, decisions and outcomes instead of code; the exception is Himnova Live, which is open source. Happy to walk through any of it in an interview.",
     "read": "Read the case study",
     "otherTitle": "Also built"
   },
@@ -53,20 +53,20 @@
   },
   "about": {
     "title": "About",
-    "p1": "I studied at Universidad Adventista del Plata — Systems Analyst in 2022, Systems Engineer in 2024 — and wrote my first production code there, upgrading the university’s Rails applications.",
+    "p1": "I studied at Universidad Adventista del Plata (Systems Analyst in 2022, Systems Engineer in 2024) and wrote my first production code there, upgrading the university’s Rails applications.",
     "p2": "In 2025 I moved to Rome to run IT and development at HopeMedia Italia, the media centre of the Italian Adventist Church Union. Since August 2026 I work remotely from Entre Ríos, Argentina, for clients in Italy and Argentina. I’m an Italian citizen.",
     "p3": "Off the clock I fly FPV drones and keep a repair log for each one, go running, self-host a home server, and I’m building an ESP32 rack that waters balcony plants on its own.",
     "languages": "Languages"
   },
   "contact": {
     "title": "Contact",
-    "lead": "Looking for a full-time remote role — contracts work too. Write to me:",
+    "lead": "Looking for a full-time remote role; contracts work too. Write to me:",
     "copy": "Copy email",
     "copied": "Copied",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "cv": "CV (PDF)",
-    "clock": "It’s {here} in Entre Ríos — {rome} in Rome and {newYork} in New York.",
+    "clock": "It’s {here} in Entre Ríos: {rome} in Rome and {newYork} in New York.",
     "clockFallback": "Entre Ríos runs on UTC−3, all year.",
     "overlap": "My working day overlaps the European afternoon and the whole US East Coast day."
   },
@@ -122,7 +122,7 @@
       "effectNote": "Approved absences become entries in the monthly report"
     },
     "archaeology": {
-      "caption": "From opaque sources to a map, then to a new database — without ever touching production.",
+      "caption": "From opaque sources to a map, then to a new database, without ever touching production.",
       "read": "Read",
       "move": "Move",
       "history": "RCS history",
@@ -159,7 +159,7 @@
   },
   "notFound": {
     "title": "Page not found",
-    "body": "There’s nothing at this address — not even a replacement character.",
+    "body": "There’s nothing at this address, not even a replacement character.",
     "home": "Go to the home page"
   }
 }

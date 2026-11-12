@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "Personal site of Nicolás Amorosi, full-stack engineer — Next.js 16, React 19, Tailwind CSS 4, next-intl.",
+  "description": "Personal site of Nicolás Amorosi, full-stack engineer (Next.js 16, React 19, Tailwind CSS 4, next-intl).",
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@10.29.3",

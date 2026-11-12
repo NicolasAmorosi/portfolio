@@ -1,7 +1,7 @@
-# CLAUDE.md — nicolasamorosi.com
+# CLAUDE.md · nicolasamorosi.com
 
 Guidance for Claude Code (and any developer) working on this repo: the personal site of
-Nicolás Amorosi, full-stack engineer. **This repository is public** — treat every file as
+Nicolás Amorosi, full-stack engineer. **This repository is public**: treat every file as
 something a recruiter or an interviewer will read.
 
 Chat with Nicolás in Spanish; code, comments, commit messages and docs in English.
@@ -22,6 +22,10 @@ Chat with Nicolás in Spanish; code, comments, commit messages and docs in Engli
 - Every user-facing string exists in `en` and `es`. Long-form content is typed data in
   `src/content` (`Localized<T>` makes a missing translation a type error); interface strings
   live in `src/i18n/messages/{en,es}.json` (keys type-checked against `en.json`).
+- **No em dashes (U+2014) in anything people read**: content, messages, metadata, docs and
+  code comments. Don't swap in a spaced en dash or hyphen for the same pause; rewrite with a
+  comma, colon, parentheses or two sentences. In Spanish this includes the raya around
+  incisos. En dashes stay only inside ranges (2023–2024). Em dashes read as AI-written.
 
 ---
 
@@ -57,12 +61,12 @@ repeated JSX becomes a primitive; Server Components by default.
 ## Design system
 
 - **Concept:** the hero decodes the name from mojibake (`NicolÃ¡s` → `Nicolás`) once per
-  visit — the legacy-migration case study told in one gesture. That's the one bold moment;
+  visit: the legacy-migration case study told in one gesture. That's the one bold moment;
   everything else stays quiet.
 - **Color:** ink `#13213C` on paper `#F1F2EF` by day, paper on ink `#0C1322` by night, via
-  `light-dark()` tokens — no `dark:` variants anywhere. One accent, highlighter `#F4D23C`,
+  `light-dark()` tokens; no `dark:` variants anywhere. One accent, highlighter `#F4D23C`,
   always *behind* ink (never text on paper).
-- **Type:** Archivo variable; its width axis is the hierarchy — 62% display, 75% headings,
+- **Type:** Archivo variable; its width axis is the hierarchy: 62% display, 75% headings,
   100% text (`type-*` utilities). IBM Plex Mono only for literal code and bytes.
   Bringhurst scale (12 14 16 18 21 24 36 48 60 72).
 - **Layout:** a margin column (sticky section titles) and a content column; work is an index
