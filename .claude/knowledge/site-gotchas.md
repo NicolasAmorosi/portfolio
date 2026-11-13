@@ -46,3 +46,9 @@
 - `/en` ↔ `/es` is a client navigation that re-renders the `[locale]` root layout. React then creates every `<script>` itself, can't run it, and logs "Encountered a script tag while rendering React component" (dev overlay). `next/script` `beforeInteractive` renders a `<script>` too. Data blocks (`type="application/ld+json"`) are exempt.
 - Fix: ship the theme script as HTML inside `<div hidden dangerouslySetInnerHTML>`: the parser runs it on the first load, before paint; on the client React only sets that HTML.
 - Last updated: 2026-11-13
+
+### Social previews keep the old picture while the image URL stays the same
+- Area: `app/[locale]/opengraph-image.tsx`, `projects/[slug]/opengraph-image.tsx`, `lib/og.tsx` · Trigger: redesigning the OG images
+- Next's `?<hash>` on the og:image URL is a hash of the route file's source, not of the picture. Change only `lib/og.tsx` and the URL stays the same, so LinkedIn (even after Post Inspector re-scrapes the page) keeps its cached image.
+- When the picture changes, touch each route file too. LinkedIn Featured items keep the image from when they were added: remove and re-add them after the new URL is live.
+- Last updated: 2026-11-13
