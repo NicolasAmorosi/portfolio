@@ -15,6 +15,9 @@ const steps: [Phase, number][] = [
 
 // Once per visit: client-side navigations (language switch, back from a case
 // study) remount the hero, and it should simply be there, already decoded.
+// The flag is set when the sequence ends, not when it starts: React's strict
+// mode runs every effect twice in development, and a flag set on the first
+// run left the second one doing nothing (the name stayed broken).
 let played = false;
 
 export function DecodedName({ name }: { name: string }) {
@@ -22,9 +25,16 @@ export function DecodedName({ name }: { name: string }) {
 
   useEffect(() => {
     if (played) return;
-    played = true;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timers = steps.map(([next, delay]) => window.setTimeout(() => setPhase(next), delay));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      played = true;
+      return;
+    }
+    const timers = steps.map(([next, delay]) =>
+      window.setTimeout(() => {
+        setPhase(next);
+        if (next === "done") played = true;
+      }, delay),
+    );
     return () => timers.forEach(window.clearTimeout);
   }, []);
 
