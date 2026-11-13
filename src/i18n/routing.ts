@@ -1,8 +1,9 @@
 import { defineRouting } from "next-intl/routing";
 
-// English is the default (international recruiters) and lives at "/"; Spanish at "/es".
+// English is the default (international recruiters) and lives at "/"; Spanish,
+// Italian and Portuguese (Brazil) at "/es", "/it" and "/pt".
 export const routing = defineRouting({
-  locales: ["en", "es"],
+  locales: ["en", "es", "it", "pt"],
   defaultLocale: "en",
   localePrefix: "as-needed",
 });

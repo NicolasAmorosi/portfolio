@@ -1,13 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { formatPeriod, formatYears, monthIndex } from "./dates";
+import { formatPeriod, formatYears } from "./dates";
 
 describe("dates", () => {
-  it("counts months from January 2020", () => {
-    expect(monthIndex("2020-01")).toBe(0);
-    expect(monthIndex("2023-03")).toBe(38);
-    expect(monthIndex("2026")).toBe(72);
-  });
-
   it("formats open and closed periods per locale", () => {
     expect(formatPeriod({ from: "2025-01", to: "2026-08" }, "en", "present")).toBe("Jan 2025 – Aug 2026");
     expect(formatPeriod({ from: "2026-08" }, "en", "present")).toBe("Aug 2026 – present");

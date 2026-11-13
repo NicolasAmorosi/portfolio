@@ -22,9 +22,9 @@ export function ThemeToggle({ label }: { label: string }) {
       onClick={toggleTheme}
       aria-label={label}
       title={label}
-      className="grid size-10 place-items-center rounded-full text-ink-2 transition-colors hover:text-ink"
+      className="grid size-9 place-items-center rounded-full text-ink-2 transition-colors hover:text-ink"
     >
-      <svg viewBox="0 0 20 20" className="theme-icon size-5" aria-hidden="true">
+      <svg viewBox="0 0 20 20" className="theme-icon size-[1.125rem]" aria-hidden="true">
         <circle cx="10" cy="10" r="8.25" fill="none" stroke="currentColor" strokeWidth="1.5" />
         <path d="M10 1.75a8.25 8.25 0 0 1 0 16.5Z" fill="currentColor" />
       </svg>

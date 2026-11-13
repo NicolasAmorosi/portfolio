@@ -32,15 +32,12 @@ export function DecodedName({ name }: { name: string }) {
     <>
       <span className="sr-only">{name}</span>
       <span className="decode" data-phase={phase} aria-hidden="true">
-        <span className="block">
-          Nicol
-          <span className="glyph">
-            <span className="decode-broken">Ã¡</span>
-            <span className="decode-fixed">á</span>
-          </span>
-          s
+        Nicol
+        <span className="glyph">
+          <span className="decode-broken">Ã¡</span>
+          <span className="decode-fixed">á</span>
         </span>
-        <span className="block">Amorosi</span>
+        s Amorosi
       </span>
       <noscript>
         <style>{".decode .decode-broken{display:none}.decode .decode-fixed{display:inline}"}</style>

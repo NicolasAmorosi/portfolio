@@ -19,37 +19,28 @@
     "present": "hoy"
   },
   "hero": {
-    "intro": "Ingeniero full-stack. Construyo los sistemas con los que funcionan las organizaciones (registros académicos, RR. HH., cuentas a pagar) de punta a punta, desde la base de datos legacy hasta producción. Remoto desde Argentina, en español, inglés e italiano.",
-    "status": "Disponible para puestos remotos full-time. También por contrato.",
-    "email": "Escribime",
-    "cv": "Descargar CV",
-    "codePoint": "Código Unicode",
-    "codePointName": "Letra a minúscula con tilde",
-    "utf8": "Guardada en UTF-8",
-    "misread": "Leída como Windows-1252",
-    "note": "Las bases de datos viejas escriben mi nombre así. Arreglarlo, veinte años de registros a la vez, es parte del trabajo.",
-    "noteLink": "Cómo lo resolví para una facultad en Florencia"
+    "role": "Ingeniero full-stack, remoto desde Entre Ríos, Argentina",
+    "now": "Construyo el software con el que funcionan las organizaciones, desde la base de datos legacy hasta producción. Ahora mismo eso es <libretto>Libretto</libretto>, el sistema de registros académicos de una facultad de teología en Florencia, y <payables>la reescritura del sistema de cuentas a pagar de una universidad</payables>, escrito en Progress 4GL.",
+    "before": "Antes lideré el equipo de la <hr>plataforma de RR. HH. y administración</hr> de la Unión Italiana de Iglesias Adventistas, en Roma. También desarrollo <himnova>Himnova Live</himnova>, un software libre de proyección para iglesias.",
+    "status": "Disponible para un puesto remoto full-time o para trabajos por contrato. Trabajo en español, inglés e italiano.",
+    "cv": "CV (PDF, en inglés)",
+    "note": "Las bases de datos viejas escriben mi nombre <bytes>NicolÃ¡s</bytes>. Arreglarlo, veinte años de registros a la vez, es parte del trabajo: <fix>así lo resolví para una facultad en Florencia</fix>."
   },
   "work": {
     "title": "Trabajo seleccionado",
-    "aside": "El código de mis clientes es privado, así que estas páginas muestran problemas, decisiones y resultados en lugar de código; la excepción es Himnova Live, que es de código abierto. Con gusto recorro cualquiera en una entrevista.",
-    "read": "Leer el caso",
+    "note": "El código de mis clientes es privado, así que los casos muestran problemas, decisiones y resultados en lugar de código. La excepción es Himnova Live, que es de código abierto. Con gusto recorro cualquiera en una entrevista.",
     "otherTitle": "También construí"
   },
   "experience": {
     "title": "Experiencia",
-    "aside": "Universidad, clientes y freelance corren en paralelo desde 2023.",
-    "now": "Hoy",
     "education": "Formación",
     "school": "Universidad Adventista del Plata"
   },
   "principles": {
-    "title": "Cómo trabajo",
-    "aside": "Hábitos que aparecen en cada repositorio."
+    "title": "Cómo trabajo"
   },
   "stack": {
-    "title": "Herramientas",
-    "aside": "Lo que uso, agrupado por capa."
+    "title": "Herramientas"
   },
   "about": {
     "title": "Sobre mí",
@@ -60,19 +51,14 @@
   },
   "contact": {
     "title": "Contacto",
-    "lead": "Busco un puesto remoto full-time; también trabajo por contrato. Escribime:",
+    "lead": "La forma más rápida de contactarme es por email.",
     "copy": "Copiar email",
     "copied": "Copiado",
-    "linkedin": "LinkedIn",
-    "github": "GitHub",
     "cv": "CV (PDF, en inglés)",
-    "clock": "Son las {here} en Entre Ríos: las {rome} en Roma y las {newYork} en Nueva York.",
-    "clockFallback": "Entre Ríos está en UTC−3 todo el año.",
-    "overlap": "Mi jornada se superpone con la tarde europea y con todo el día laboral de la costa este de EE. UU."
+    "hours": "Entre Ríos está en UTC−3 todo el año, así que mi jornada se superpone con la tarde europea y con todo el día laboral de la costa este de EE. UU."
   },
   "case": {
     "back": "Todo el trabajo",
-    "period": "Período",
     "role": "Rol",
     "stack": "Stack",
     "problem": "El problema",
@@ -153,13 +139,34 @@
     }
   },
   "footer": {
-    "colophon": "Compuesto en Archivo e IBM Plex Mono. Hecho con Next.js, React y Tailwind CSS.",
     "rights": "© {year} Nicolás Amorosi",
+    "colophon": "Compuesto en Archivo e IBM Plex Mono.",
+    "source": "Código en GitHub",
     "top": "Volver arriba"
   },
   "notFound": {
     "title": "Página no encontrada",
     "body": "No hay nada en esta dirección; ni siquiera un carácter de reemplazo.",
     "home": "Ir al inicio"
+  },
+  "plates": {
+    "glyph": {
+      "title": "La á de mi nombre",
+      "note": "Dos bytes en UTF-8. Las bases de datos viejas los leen como dos caracteres.",
+      "codePoint": "Código Unicode",
+      "utf8": "Guardada en UTF-8",
+      "misread": "Leída como Windows-1252"
+    },
+    "stack": {
+      "title": "Herramientas por capa",
+      "note": "La identidad y los tests atraviesan todas las capas."
+    },
+    "clock": {
+      "title": "Husos horarios",
+      "note": "Entre Ríos está en UTC−3 todo el año. La línea amarilla es ahora.",
+      "here": "Entre Ríos",
+      "rome": "Roma",
+      "newYork": "Nueva York"
+    }
   }
 }

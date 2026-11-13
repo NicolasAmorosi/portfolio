@@ -17,6 +17,6 @@ export default async function OpengraphImage({ params }: { params: Promise<{ loc
   const locale = routing.locales.find((l) => l === requested) ?? routing.defaultLocale;
   const project = getProject(slug);
   const t = await getTranslations({ locale, namespace: "meta" });
-  if (!project) return caseImage({ client: "", title: site.name, footer: t("jobTitle") });
-  return caseImage({ client: project.client[locale], title: project.title[locale], footer: t("jobTitle") });
+  if (!project) return caseImage({ client: "", title: site.name, summary: t("jobTitle") });
+  return caseImage({ client: project.client[locale], title: project.title[locale], summary: project.proof[locale] });
 }

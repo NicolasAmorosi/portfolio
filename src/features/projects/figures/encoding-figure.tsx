@@ -82,9 +82,9 @@ export function EncodingFigure() {
           const silent = replacements === 0 && [...text].some(isC1Control);
           const ok = replacements === 0 && !silent;
           return (
-            <li key={codec} className="grid gap-x-6 gap-y-1 py-4 sm:grid-cols-[11rem_1fr_auto] sm:items-baseline">
+            <li key={codec} className="grid gap-x-6 gap-y-1 py-4 sm:grid-cols-[11rem_auto_1fr] sm:items-baseline">
               <p className="text-sm text-ink-2">{t("as", { codec })}</p>
-              <p className="type-heading text-xl" aria-live="polite">
+              <p className="text-[1.75rem] leading-tight font-semibold whitespace-nowrap" aria-live="polite">
                 {[...text].map((char, i) =>
                   char === "�" ? (
                     <span key={i} className="rounded-[3px] bg-mark px-0.5 text-mark-ink">

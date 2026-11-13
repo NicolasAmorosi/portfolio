@@ -1,17 +1,39 @@
+import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { getProject, projects, type Project } from "@/content/projects";
 import { Link } from "@/i18n/navigation";
 import { formatPeriod } from "@/lib/dates";
 import { CaseFigure } from "./figures/case-figure";
-import { MiniFigure } from "./mini-figure";
 
-function Block({ title, children }: { title: string; children: ReactNode }) {
+function Block({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
-    <section className="border-t border-rule pt-6">
-      <h2 className="type-heading text-xl">{title}</h2>
-      <div className="mt-5">{children}</div>
+    <section id={id} aria-labelledby={`${id}-title`} className="mt-14">
+      <h2 id={`${id}-title`} className="text-md">
+        {title}
+      </h2>
+      <div className="mt-4">{children}</div>
     </section>
+  );
+}
+
+function Paragraphs({ items }: { items: string[] }) {
+  return (
+    <div className="space-y-4">
+      {items.map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
+    </div>
+  );
+}
+
+function Bullets({ items }: { items: string[] }) {
+  return (
+    <ul className="list-disc space-y-2 pl-5 marker:text-ink-2">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
   );
 }
 
@@ -20,24 +42,28 @@ export async function CaseStudy({ project }: { project: Project }) {
   const t = await getTranslations("case");
   const common = await getTranslations("common");
   const next = projects[(projects.indexOf(project) + 1) % projects.length] ?? project;
+  const screenshot = project.screenshot;
+  const specs = [
+    { label: t("role"), value: project.role[locale] },
+    ...project.facts.map((fact) => ({ label: fact.label[locale], value: fact.value[locale] })),
+    { label: t("stack"), value: project.stack.join(", ") },
+  ];
 
   return (
     <article>
-      <div aria-hidden="true" className="reading-progress no-print fixed inset-x-0 top-16 z-30 h-[3px] bg-mark" />
-
-      <header className="shell grid gap-x-10 pt-8 pb-12 sm:pt-12 lg:grid-cols-12">
-        <div className="lg:col-span-12">
+      <header className="shell">
+        <div className="column pt-10 sm:pt-16">
           <Link href={{ pathname: "/", hash: "work" }} className="link text-sm text-ink-2">
             <span aria-hidden="true">← </span>
             {t("back")}
           </Link>
-        </div>
-        <div className="lg:col-span-9">
-          <p className="mt-10 text-ui text-ink-2 sm:mt-14">{project.client[locale]}</p>
-          <h1 className="type-display mt-3 text-[clamp(3.6rem,13vw,10rem)]">{project.title[locale]}</h1>
-          <p className="mt-8 max-w-[40ch] text-lg leading-[1.35] sm:text-[1.75rem] sm:leading-[1.3]">{project.lede[locale]}</p>
+          <p className="mt-10 text-sm text-ink-2">
+            {project.client[locale]} · <span className="tabular-nums">{formatPeriod(project.period, locale, common("present"))}</span>
+          </p>
+          <h1 className="mt-2 text-xl tracking-[-0.02em]">{project.title[locale]}</h1>
+          <p className="mt-5 text-md">{project.lede[locale]}</p>
           {project.openSource ? (
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-ui">
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-1">
               {[
                 { href: project.openSource.repo, label: t("repo") },
                 { href: `${project.openSource.repo}/releases/latest`, label: t("download") },
@@ -51,68 +77,66 @@ export async function CaseStudy({ project }: { project: Project }) {
               ))}
             </ul>
           ) : null}
-        </div>
-        <MiniFigure kind={project.figure} className="hidden w-full self-end pb-2 text-ink-2 lg:col-span-3 lg:block" />
-      </header>
 
-      <div className="shell grid gap-x-10 gap-y-12 pb-16 lg:grid-cols-12">
-        <aside className="lg:col-span-3">
-          <dl className="grid grid-cols-2 gap-x-6 border-t border-ink lg:sticky lg:top-24 lg:grid-cols-1">
-            {[
-              { label: t("role"), value: project.role[locale] },
-              { label: t("period"), value: formatPeriod(project.period, locale, common("present")) },
-              ...project.facts.map((fact) => ({ label: fact.label[locale], value: fact.value[locale] })),
-            ].map((item) => (
-              <div key={item.label} className="border-b border-rule py-3">
-                <dt className="text-xs text-ink-2">{item.label}</dt>
-                <dd className="mt-0.5 text-ui font-medium tabular-nums">{item.value}</dd>
+          <dl className="mt-10 border-t border-rule text-ui">
+            {specs.map((spec) => (
+              <div key={spec.label} className="grid gap-x-6 border-b border-rule py-2.5 sm:grid-cols-[11rem_1fr]">
+                <dt className="text-ink-2">{spec.label}</dt>
+                <dd className="tabular-nums">{spec.value}</dd>
               </div>
             ))}
-            <div className="col-span-2 py-3 lg:col-span-1">
-              <dt className="text-xs text-ink-2">{t("stack")}</dt>
-              <dd className="mt-1 text-sm leading-relaxed">{project.stack.join(", ")}</dd>
-            </div>
           </dl>
-        </aside>
+        </div>
+      </header>
 
-        <div className="min-w-0 space-y-14 lg:col-span-9 [&_p]:max-w-[66ch]">
-          <Block title={t("problem")}>
-            <div className="space-y-4">
-              {project.problem[locale].map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
+      {screenshot ? (
+        <figure className="shell mt-12">
+          <div className="mx-auto max-w-[60rem]">
+            {(["light", "dark"] as const).map((scheme) => (
+              <Image
+                key={scheme}
+                src={screenshot.image[locale][scheme]}
+                alt={screenshot.alt[locale]}
+                sizes="(min-width: 1040px) 960px, 100vw"
+                className={`only-${scheme} h-auto w-full rounded-[6px] border border-rule`}
+              />
+            ))}
+            {/* Same words as the alt text: hidden from screen readers so it isn't read twice. */}
+            <figcaption aria-hidden="true" className="column mt-3 text-sm text-ink-2">
+              {screenshot.alt[locale]}
+            </figcaption>
+          </div>
+        </figure>
+      ) : null}
+
+      <div className="shell">
+        <div className="column pb-6">
+          <Block id="problem" title={t("problem")}>
+            <Paragraphs items={project.problem[locale]} />
           </Block>
 
-          <Block title={t("constraints")}>
-            <ul className="max-w-[66ch] list-disc space-y-2 pl-5 marker:text-ink-2">
-              {project.constraints[locale].map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+          <Block id="constraints" title={t("constraints")}>
+            <Bullets items={project.constraints[locale]} />
           </Block>
 
-          <Block title={t("built")}>
-            <div className="space-y-4">
-              {project.built[locale].map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
+          <Block id="built" title={t("built")}>
+            <Paragraphs items={project.built[locale]} />
           </Block>
 
-          <Block title={t("hard")}>
-            <div className="mb-10 [&_p]:max-w-none">
+          <Block id="hard" title={t("hard")}>
+            {/* Figures were drawn for ~900px: on wide screens they step out of the text column. */}
+            <div className="lg:-mx-32">
               <CaseFigure kind={project.figure} />
             </div>
-            <div className="space-y-9">
+            <div className="mt-10 space-y-8">
               {project.hard.map((part) => {
                 const related = part.seeAlso ? getProject(part.seeAlso) : undefined;
                 return (
                   <div key={part.title.en}>
-                    <h3 className="type-heading text-lg">{part.title[locale]}</h3>
-                    <p className="mt-2">{part.body[locale]}</p>
+                    <h3 className="font-semibold">{part.title[locale]}</h3>
+                    <p className="mt-1.5">{part.body[locale]}</p>
                     {related ? (
-                      <Link href={`/projects/${related.slug}`} className="link mt-3 inline-block">
+                      <Link href={`/projects/${related.slug}`} className="link mt-2 inline-block">
                         {t("seeAlso", { title: related.title[locale] })}
                       </Link>
                     ) : null}
@@ -122,31 +146,22 @@ export async function CaseStudy({ project }: { project: Project }) {
             </div>
           </Block>
 
-          <Block title={t("result")}>
-            <ul className="max-w-[66ch] divide-y divide-rule border-y border-rule">
-              {project.result[locale].map((item) => (
-                <li key={item} className="py-3 text-md leading-snug">
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <Block id="result" title={t("result")}>
+            <Bullets items={project.result[locale]} />
           </Block>
 
-          <p className="text-sm text-ink-2">{t(project.openSource ? "openSource" : "privacy")}</p>
+          <p className="mt-12 text-sm text-ink-2">{t(project.openSource ? "openSource" : "privacy")}</p>
         </div>
       </div>
 
-      <nav aria-label={t("next")} className="shell no-print pb-16">
-        <Link
-          href={`/projects/${next.slug}`}
-          className="group block border-t border-ink pt-6"
-        >
-          <span className="text-sm text-ink-2">{t("next")}</span>
-          <span className="type-display mt-3 block text-[clamp(2.75rem,9vw,6.5rem)]">
-            <span className="highlight">{next.title[locale]}</span>
-          </span>
-          <span className="mt-3 block text-ink-2">{next.client[locale]}</span>
-        </Link>
+      <nav aria-label={t("next")} className="shell no-print">
+        <div className="column mt-16 border-t border-rule pt-5">
+          <p className="text-sm text-ink-2">{t("next")}</p>
+          <Link href={`/projects/${next.slug}`} className="link mt-1 inline-block font-semibold">
+            {next.title[locale]} <span aria-hidden="true">→</span>
+          </Link>
+          <p className="mt-1 text-ui text-ink-2">{next.summary[locale]}</p>
+        </div>
       </nav>
     </article>
   );

@@ -7,10 +7,10 @@
 - Last updated: 2026-10-14
 
 ### Zero-size background tiles paint hairlines in Chrome at 1x
-- Area: highlighter effects (`.link`, `.highlight`, hero decode) · Trigger: animating `background-size` from `0%`
+- Area: highlighter effects (the name decode) · Trigger: animating `background-size` from `0%`
 - At DPR 1 Chrome drew 1px slivers at the tile edge on huge type.
-- Inline/multi-line text: slide a 200%-wide half-transparent gradient with `background-position`. Single glyph: pseudo-element + `transform: scaleX()`.
-- Last updated: 2026-10-14
+- Inline/multi-line text: slide a 200%-wide half-transparent gradient with `background-position`, parked at `calc(100% - 4px)` (at exactly `100%` the stroke's edge leaks a 1px sliver at the left of every link, seen at 2x). Single glyph: pseudo-element + `transform: scaleX()`.
+- Last updated: 2026-11-13
 
 ### Grid items with a row but no column create implicit columns
 - Area: hero grid · Trigger: `lg:row-start-1` on an item whose neighbour is explicitly placed in the same row
@@ -34,3 +34,15 @@
 - At the very end of a page, switching to a shorter language clamps to the bottom (expected).
 - Guarded by `e2e/locale-switch.e2e.ts` (fails without the fix, verified). In Playwright use a real `page.mouse.click` on the sticky header: `locator.click()` scrolls it "into view" first and fakes a jump.
 - Last updated: 2026-10-14
+
+### `sr-only` text escapes horizontal scrollers
+- Area: figures with `overflow-x-auto` (scopes table) · Trigger: a positioned ancestor outside the scroller
+- `sr-only` is `position: absolute`. If its containing block is outside the scroller, the scroller doesn't clip it and the page grows sideways (the Libretto page was 470px wide on a 375px phone).
+- Give every scroller `relative`. Guarded by `e2e/pages.e2e.ts` (no horizontal overflow on any page).
+- Last updated: 2026-11-13
+
+### A language switch re-renders the root layout: no React `<script>` there
+- Area: `app/[locale]/layout.tsx` · Trigger: rendering an executable `<script>` (the theme script) in the layout
+- `/en` ↔ `/es` is a client navigation that re-renders the `[locale]` root layout. React then creates every `<script>` itself, can't run it, and logs "Encountered a script tag while rendering React component" (dev overlay). `next/script` `beforeInteractive` renders a `<script>` too. Data blocks (`type="application/ld+json"`) are exempt.
+- Fix: ship the theme script as HTML inside `<div hidden dangerouslySetInnerHTML>`: the parser runs it on the first load, before paint; on the client React only sets that HTML.
+- Last updated: 2026-11-13

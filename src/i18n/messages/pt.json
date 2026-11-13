@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "title": "Nicolás Amorosi, engenheiro full-stack",
+    "description": "Engenheiro full-stack (TypeScript, Next.js, NestJS, PostgreSQL). Construo e modernizo sistemas de gestão de ponta a ponta, do banco de dados legado à produção. Remoto da Argentina; inglês, espanhol, italiano.",
+    "jobTitle": "Engenheiro full-stack"
+  },
+  "nav": {
+    "skip": "Pular para o conteúdo",
+    "home": "Nicolás Amorosi, página inicial",
+    "sections": "Seções",
+    "work": "Trabalho",
+    "experience": "Experiência",
+    "about": "Sobre",
+    "contact": "Contato",
+    "language": "Idioma",
+    "theme": "Alternar modo escuro"
+  },
+  "common": {
+    "present": "atual"
+  },
+  "hero": {
+    "role": "Engenheiro full-stack, remoto de Entre Ríos, Argentina",
+    "now": "Construo o software que faz organizações funcionarem, do banco de dados legado até a produção. Agora, isso significa o <libretto>Libretto</libretto>, o sistema de registros acadêmicos de uma faculdade de teologia em Florença, e <payables>a reescrita do sistema de contas a pagar de uma universidade</payables>, hoje em Progress 4GL.",
+    "before": "Antes disso, liderei a equipe por trás da <hr>plataforma de RH e administração</hr> da União Italiana das Igrejas Adventistas, em Roma. Também desenvolvo o <himnova>Himnova Live</himnova>, um software de projeção de código aberto para igrejas.",
+    "status": "Aberto a uma vaga remota em tempo integral ou a trabalhos por contrato. Trabalho em inglês, espanhol e italiano.",
+    "cv": "CV (PDF, em inglês)",
+    "note": "Bancos de dados antigos escrevem meu nome como <bytes>NicolÃ¡s</bytes>. Acertar isso, vinte anos de registros de cada vez, faz parte do trabalho: <fix>foi assim que eu corrigi isso para uma faculdade em Florença</fix>."
+  },
+  "work": {
+    "title": "Trabalhos selecionados",
+    "note": "O código dos clientes é privado, então os estudos de caso mostram problemas, decisões e resultados em vez de código. A exceção é o Himnova Live, que é de código aberto. Posso explicar qualquer parte disso com prazer em uma entrevista.",
+    "otherTitle": "Também construí"
+  },
+  "experience": {
+    "title": "Experiência",
+    "education": "Formação",
+    "school": "Universidad Adventista del Plata"
+  },
+  "principles": {
+    "title": "Como trabalho"
+  },
+  "stack": {
+    "title": "Ferramentas"
+  },
+  "about": {
+    "title": "Sobre",
+    "p1": "Estudei na Universidad Adventista del Plata (Analista de Sistemas em 2022, Engenheiro de Sistemas em 2024) e escrevi lá meu primeiro código em produção, atualizando as aplicações Rails da universidade.",
+    "p2": "Em 2025 me mudei para Roma para comandar a TI e o desenvolvimento da HopeMedia Italia, o centro de mídia da União Italiana das Igrejas Adventistas. Desde agosto de 2026 trabalho remotamente de Entre Ríos, Argentina, para clientes na Itália e na Argentina. Sou cidadão italiano.",
+    "p3": "Fora do trabalho, piloto drones FPV e mantenho um registro de reparos de cada um, corro, administro um servidor em casa e estou construindo um rack com ESP32 que rega sozinho as plantas da varanda.",
+    "languages": "Idiomas"
+  },
+  "contact": {
+    "title": "Contato",
+    "lead": "E-mail é o jeito mais rápido de falar comigo.",
+    "copy": "Copiar e-mail",
+    "copied": "Copiado",
+    "cv": "CV (PDF, em inglês)",
+    "hours": "Entre Ríos fica em UTC−3 o ano todo, então meu dia de trabalho coincide com a tarde europeia e com o dia inteiro da Costa Leste dos EUA."
+  },
+  "case": {
+    "back": "Todos os trabalhos",
+    "role": "Função",
+    "stack": "Stack",
+    "problem": "O problema",
+    "constraints": "Restrições",
+    "built": "O que construí",
+    "hard": "As partes difíceis",
+    "result": "Resultado",
+    "seeAlso": "Leia: {title}",
+    "next": "Próximo estudo de caso",
+    "privacy": "O código pertence ao cliente e continua privado. As figuras são ilustrações com dados de exemplo; nenhum registro real aparece nesta página.",
+    "repo": "Código-fonte no GitHub",
+    "download": "Baixar",
+    "website": "Site do projeto",
+    "openSource": "Este projeto é de código aberto: o código, as issues e as releases são públicos no GitHub. As figuras são ilustrações."
+  },
+  "figures": {
+    "scopes": {
+      "legend": "Ver notas como",
+      "student": "Aluno",
+      "teacher": "Professor",
+      "secretary": "Secretaria",
+      "you": "Você",
+      "studentRow": "Aluno {letter}",
+      "hidden": "Não enviado",
+      "filter": "Filtro que o servidor adiciona",
+      "caption": "Uma request de notas, respondida para três pessoas. O escopo vira um filtro no banco de dados; as notas fora dele nunca saem do servidor."
+    },
+    "encoding": {
+      "legend": "Exemplo",
+      "bytes": "Bytes no banco de dados antigo",
+      "as": "Decodificado como {codec}",
+      "ok": "Correto",
+      "fffd": "{count, plural, one {# caractere de substituição. O controle se recusa a gravar.} other {# caracteres de substituição. O controle se recusa a gravar.}}",
+      "silent": "Nenhum caractere de substituição, mas um caractere sumiu",
+      "invisible": "Caractere de controle invisível {code}",
+      "caption": "Os mesmos bytes passando por três decodificadores. O UTF-8 falha de forma evidente, o latin1 falha em silêncio, o Windows-1252 acerta."
+    },
+    "approval": {
+      "caption": "Montada no momento do envio, subindo pela hierarquia. Cada etapa guarda um snapshot do seu aprovador, então uma reorganização nunca reescreve aprovações passadas.",
+      "requester": "Solicitação enviada",
+      "level": "Nível {level}",
+      "approver": "Aprovador, nível {level}",
+      "final": "Aprovação final",
+      "finalNote": "Quem tiver a permissão de aprovação final",
+      "snapshot": "Snapshot armazenado",
+      "effect": "Folha de ponto preenchida",
+      "effectNote": "Ausências aprovadas viram lançamentos no relatório mensal"
+    },
+    "archaeology": {
+      "caption": "De fontes opacas a um mapa, e daí a um novo banco de dados, sem nunca tocar na produção.",
+      "read": "Ler",
+      "move": "Mover",
+      "history": "Histórico RCS",
+      "historyNote": "1.789 arquivos, 5.774 revisões",
+      "schema": "Schemas .df",
+      "schemaNote": "Tabelas e campos reais",
+      "sources": "Código-fonte 4GL",
+      "sourcesNote": "77 programas, ~53 mil linhas",
+      "map": "Mapa de tabelas, programas e histórico",
+      "staging": "Staging",
+      "stagingNote": "Tabelas legadas carregadas um para um",
+      "transform": "Transformar",
+      "transformNote": "SQL puro",
+      "reconcile": "Conciliar",
+      "reconcileNote": "Totais conferidos com o sistema antigo"
+    },
+    "projection": {
+      "caption": "A janela de projeção só renderiza a última saída que recebeu, então sempre pode ser reconstruída. Os slides nunca são convertidos: o app lê cada apresentação sozinho e o renderer a desenha.",
+      "control": "Janela de controle",
+      "controlNote": "O operador enfileira músicas, passagens, slides",
+      "main": "Processo principal",
+      "mainNote": "Dono do estado e do SQLite; reenvia a última saída",
+      "screen": "Janela de projeção",
+      "screenNote": "Uma função pura da última saída",
+      "ipc": "Contrato de IPC tipado",
+      "pipeline": "Pipeline de slides",
+      "drawn": "Desenhado, não convertido"
+    }
+  },
+  "footer": {
+    "rights": "© {year} Nicolás Amorosi",
+    "colophon": "Composto em Archivo e IBM Plex Mono.",
+    "source": "Código-fonte no GitHub",
+    "top": "Voltar ao topo"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "body": "Não há nada neste endereço, nem mesmo um caractere de substituição.",
+    "home": "Ir para a página inicial"
+  },
+  "plates": {
+    "glyph": {
+      "title": "O á do meu nome",
+      "note": "Dois bytes em UTF-8. Bancos de dados antigos os leem como dois caracteres.",
+      "codePoint": "Ponto de código",
+      "utf8": "Armazenado em UTF-8",
+      "misread": "Lido como Windows-1252"
+    },
+    "stack": {
+      "title": "Ferramentas por camada",
+      "note": "Identidade e testes atravessam todas as camadas."
+    },
+    "clock": {
+      "title": "Fusos horários",
+      "note": "Entre Ríos fica em UTC−3 o ano todo. A linha amarela é agora.",
+      "here": "Entre Ríos",
+      "rome": "Roma",
+      "newYork": "Nova York"
+    }
+  }
+}

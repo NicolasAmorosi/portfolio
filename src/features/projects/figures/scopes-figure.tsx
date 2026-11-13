@@ -59,7 +59,8 @@ export function ScopesFigure() {
       <p className="mt-6 text-sm text-ink-2">{t("filter")}</p>
       <p className="mt-1 overflow-x-auto font-mono text-sm whitespace-nowrap">{viewer.filter}</p>
 
-      <div className="mt-6 overflow-x-auto">
+      {/* relative: keeps the sr-only cells inside the scroller, not the page */}
+      <div className="relative mt-6 overflow-x-auto">
         <table className="w-full min-w-[30rem] table-fixed border-separate border-spacing-1 text-center">
           <colgroup>
             <col className="w-28" />

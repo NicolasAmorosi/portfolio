@@ -24,7 +24,7 @@ export function CopyEmail({ email, label, done }: { email: string; label: string
     <button
       type="button"
       onClick={copy}
-      className="inline-flex h-12 items-center rounded-[4px] border border-ink/30 px-5 text-ui font-medium transition-colors hover:border-ink"
+      className="rounded-[4px] border border-rule px-2 py-0.5 text-sm text-ink-2 transition-colors hover:border-ink-2 hover:text-ink"
     >
       <span aria-live="polite">{copied ? done : label}</span>
     </button>

@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "title": "Nicolás Amorosi, full-stack engineer",
+    "description": "Full-stack engineer (TypeScript, Next.js, NestJS, PostgreSQL). Realizzo e modernizzo sistemi gestionali dall’inizio alla fine, dal database legacy alla produzione. In remoto dall’Argentina; inglese, spagnolo, italiano.",
+    "jobTitle": "Full-stack engineer"
+  },
+  "nav": {
+    "skip": "Vai al contenuto",
+    "home": "Nicolás Amorosi, pagina iniziale",
+    "sections": "Sezioni",
+    "work": "Lavori",
+    "experience": "Esperienza",
+    "about": "Chi sono",
+    "contact": "Contatti",
+    "language": "Lingua",
+    "theme": "Attiva o disattiva il tema scuro"
+  },
+  "common": {
+    "present": "oggi"
+  },
+  "hero": {
+    "role": "Full-stack engineer, in remoto da Entre Ríos, Argentina",
+    "now": "Sviluppo il software su cui si reggono le organizzazioni, dal database legacy alla produzione. In questo momento vuol dire <libretto>Libretto</libretto>, il sistema di gestione delle carriere accademiche di una facoltà di teologia a Firenze, e <payables>la riscrittura del sistema di contabilità fornitori di un’università</payables>, scritto in Progress 4GL.",
+    "before": "In precedenza ho guidato il team della <hr>piattaforma HR e amministrativa</hr> dell’Unione Italiana delle Chiese Cristiane Avventiste del 7° Giorno, a Roma. Sviluppo anche <himnova>Himnova Live</himnova>, un software di proiezione open source per le chiese.",
+    "status": "Disponibile per un ruolo full-time in remoto o per incarichi a contratto. Lavoro in inglese, spagnolo e italiano.",
+    "cv": "CV (PDF, in inglese)",
+    "note": "Nei vecchi database il mio nome compare come <bytes>NicolÃ¡s</bytes>. Correggerlo, vent’anni di record alla volta, fa parte del lavoro: <fix>ecco come l’ho risolto per una facoltà a Firenze</fix>."
+  },
+  "work": {
+    "title": "Lavori selezionati",
+    "note": "Il codice dei clienti è privato, quindi i casi di studio mostrano problemi, decisioni e risultati invece del codice. Fa eccezione Himnova Live, che è open source. Ne parlo volentieri in un colloquio.",
+    "otherTitle": "Ho realizzato anche"
+  },
+  "experience": {
+    "title": "Esperienza",
+    "education": "Formazione",
+    "school": "Universidad Adventista del Plata"
+  },
+  "principles": {
+    "title": "Come lavoro"
+  },
+  "stack": {
+    "title": "Strumenti"
+  },
+  "about": {
+    "title": "Chi sono",
+    "p1": "Ho studiato presso la Universidad Adventista del Plata (titolo di Analista en Sistemas nel 2022 e di Ingeniero en Sistemas nel 2024) e lì ho scritto il mio primo codice in produzione, aggiornando le applicazioni Rails dell’università.",
+    "p2": "Nel 2025 mi sono trasferito a Roma per dirigere l’IT e lo sviluppo di HopeMedia Italia, il centro media dell’Unione Italiana delle Chiese Cristiane Avventiste del 7° Giorno. Da agosto 2026 lavoro in remoto da Entre Ríos, Argentina, per clienti in Italia e in Argentina. Ho la cittadinanza italiana.",
+    "p3": "Nel tempo libero piloto droni FPV e tengo un registro delle riparazioni di ognuno, vado a correre, gestisco un server domestico in self-hosting e sto costruendo un rack con ESP32 che innaffia da solo le piante del balcone.",
+    "languages": "Lingue"
+  },
+  "contact": {
+    "title": "Contatti",
+    "lead": "Il modo più rapido per contattarmi è l’email.",
+    "copy": "Copia email",
+    "copied": "Copiato",
+    "cv": "CV (PDF, in inglese)",
+    "hours": "Entre Ríos è in UTC−3 tutto l’anno, quindi la mia giornata lavorativa si sovrappone al pomeriggio europeo e all’intera giornata lavorativa della costa est degli Stati Uniti."
+  },
+  "case": {
+    "back": "Tutti i lavori",
+    "role": "Ruolo",
+    "stack": "Stack",
+    "problem": "Il problema",
+    "constraints": "Vincoli",
+    "built": "Cosa ho realizzato",
+    "hard": "Le parti difficili",
+    "result": "Risultato",
+    "seeAlso": "Leggi: {title}",
+    "next": "Caso di studio successivo",
+    "privacy": "Il codice appartiene al cliente e resta privato. Le figure sono illustrazioni con dati di esempio; in questa pagina non compare alcun record reale.",
+    "repo": "Codice sorgente su GitHub",
+    "download": "Scarica",
+    "website": "Sito del progetto",
+    "openSource": "Questo progetto è open source: codice, issue e release sono pubblici su GitHub. Le figure sono illustrazioni."
+  },
+  "figures": {
+    "scopes": {
+      "legend": "Vedi i voti come",
+      "student": "Studente",
+      "teacher": "Docente",
+      "secretary": "Segreteria",
+      "you": "Tu",
+      "studentRow": "Studente {letter}",
+      "hidden": "Non inviato",
+      "filter": "Filtro aggiunto dal server",
+      "caption": "Una sola richiesta di voti, con la risposta per tre persone. L’ambito diventa un filtro sul database; i voti che ne restano fuori non lasciano mai il server."
+    },
+    "encoding": {
+      "legend": "Esempio",
+      "bytes": "Byte nel vecchio database",
+      "as": "Decodificato come {codec}",
+      "ok": "Corretto",
+      "fffd": "{count, plural, one {# carattere di sostituzione. Il controllo si rifiuta di scrivere.} other {# caratteri di sostituzione. Il controllo si rifiuta di scrivere.}}",
+      "silent": "Nessun carattere di sostituzione, ma un carattere è sparito",
+      "invisible": "Carattere di controllo invisibile {code}",
+      "caption": "Gli stessi byte attraverso tre decoder. UTF-8 fallisce in modo evidente, latin1 fallisce in silenzio, Windows-1252 li decodifica correttamente."
+    },
+    "approval": {
+      "caption": "Si costruisce al momento dell’invio risalendo la gerarchia. Ogni passaggio conserva uno snapshot del suo approvatore, così una riorganizzazione non riscrive mai le approvazioni passate.",
+      "requester": "Richiesta inviata",
+      "level": "Livello {level}",
+      "approver": "Approvatore, livello {level}",
+      "final": "Approvazione finale",
+      "finalNote": "Chi detiene il permesso di approvazione finale",
+      "snapshot": "Snapshot salvato",
+      "effect": "Rapportino compilato",
+      "effectNote": "Le assenze approvate diventano voci del rapportino mensile"
+    },
+    "archaeology": {
+      "caption": "Da sorgenti opachi a una mappa, poi a un nuovo database, senza mai toccare la produzione.",
+      "read": "Leggere",
+      "move": "Spostare",
+      "history": "Cronologia RCS",
+      "historyNote": "1.789 file, 5.774 revisioni",
+      "schema": "Schemi .df",
+      "schemaNote": "Tabelle e campi reali",
+      "sources": "Sorgenti 4GL",
+      "sourcesNote": "77 programmi, ~53 mila righe",
+      "map": "Mappa di tabelle, programmi e cronologia",
+      "staging": "Staging",
+      "stagingNote": "Tabelle legacy caricate uno a uno",
+      "transform": "Trasformare",
+      "transformNote": "SQL puro",
+      "reconcile": "Riconciliare",
+      "reconcileNote": "Totali verificati con il vecchio sistema"
+    },
+    "projection": {
+      "caption": "La finestra di proiezione mostra solo l’ultimo output ricevuto, quindi si può sempre ricostruire. Le slide non vengono mai convertite: l’app legge da sé ogni presentazione e il renderer la disegna.",
+      "control": "Finestra di controllo",
+      "controlNote": "L’operatore mette in coda canti, passi biblici, slide",
+      "main": "Processo principale",
+      "mainNote": "Possiede lo stato e SQLite; reinvia l’ultimo output",
+      "screen": "Finestra di proiezione",
+      "screenNote": "Una funzione pura dell’ultimo output",
+      "ipc": "Contratto IPC tipizzato",
+      "pipeline": "Pipeline delle slide",
+      "drawn": "Disegnate, non convertite"
+    }
+  },
+  "footer": {
+    "rights": "© {year} Nicolás Amorosi",
+    "colophon": "Composto in Archivo e IBM Plex Mono.",
+    "source": "Codice sorgente su GitHub",
+    "top": "Torna su"
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "body": "A questo indirizzo non c’è niente, nemmeno un carattere di sostituzione.",
+    "home": "Vai alla pagina iniziale"
+  },
+  "plates": {
+    "glyph": {
+      "title": "La á del mio nome",
+      "note": "Due byte in UTF-8. I vecchi database li leggono come due caratteri.",
+      "codePoint": "Code point",
+      "utf8": "Salvata in UTF-8",
+      "misread": "Letta come Windows-1252"
+    },
+    "stack": {
+      "title": "Strumenti per livello",
+      "note": "Identità e test attraversano tutti i livelli."
+    },
+    "clock": {
+      "title": "Fusi orari",
+      "note": "Entre Ríos è in UTC−3 tutto l’anno. La linea gialla indica l’ora attuale.",
+      "here": "Entre Ríos",
+      "rome": "Roma",
+      "newYork": "New York"
+    }
+  }
+}

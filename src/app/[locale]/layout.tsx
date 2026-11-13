@@ -9,8 +9,14 @@ import { archivo, plexMono } from "@/lib/fonts";
 import { site } from "@/lib/site";
 import "../globals.css";
 
-// Runs before first paint so an explicit theme choice never flashes.
-const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
+// Runs before first paint so an explicit theme choice never flashes. It ships
+// as HTML inside a hidden element, not as a React <script>: the parser runs it
+// on the first load, and a language switch (which re-renders this layout on the
+// client) only sets that HTML again, where React would otherwise create a
+// <script> it can't execute and log an error about it.
+const themeScript = `<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>`;
+
+const ogLocales = { en: "en_US", es: "es_AR", it: "it_IT", pt: "pt_BR" } as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -37,7 +43,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
     openGraph: {
       type: "website",
       siteName: site.name,
-      locale: locale === "es" ? "es_AR" : "en_US",
+      locale: ogLocales[locale],
     },
     twitter: { card: "summary_large_image" },
   };
@@ -58,10 +64,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       className={`${archivo.variable} ${plexMono.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body id="top">
+        <div hidden dangerouslySetInnerHTML={{ __html: themeScript }} />
         <a
           href="#main"
           className="sr-only-focusable fixed top-3 left-3 z-50 rounded-[4px] bg-mark px-4 py-2 font-medium text-mark-ink"

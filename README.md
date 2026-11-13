@@ -4,14 +4,16 @@
 
 Personal site of Nicolás Amorosi, full-stack engineer: **[nicolasamorosi.com](https://nicolasamorosi.com)**.
 
-![The home page: the name set very large in a condensed typeface, with an annotation about the á character](.github/assets/home-light.png)
+![The home page on a wide screen: a section rail on the left, the intro in the middle and a blueprint plate of the á on the right](.github/assets/home-light.png)
 
 ## The idea
 
 Almost everything I build is private client code, so the site has to show how I think
-rather than link to what I shipped. Its one bold gesture comes from my favourite case
-study: on load the name renders as `NicolÃ¡s` (UTF-8 bytes read as Windows-1252, the way
-old databases spell it) and decodes itself under a highlighter stroke. The rest stays quiet.
+rather than link to what I shipped. It reads like an engineer's page: facts first, work as a
+dated list with its numbers, one column of text, real figures and screenshots instead of
+decoration. One small gesture comes from my favourite case study: on load the name renders
+as `NicolÃ¡s` (UTF-8 bytes read as Windows-1252, the way old databases spell it) and decodes
+itself under a highlighter stroke.
 
 | Dark, in Spanish | Phone |
 |---|---|
@@ -20,7 +22,8 @@ old databases spell it) and decodes itself under a highlighter stroke. The rest 
 ## What's inside
 
 - **Five case studies** (problem → constraints → what I built → the hard part → result),
-  each with its own drawing. Two figures are interactive:
+  each with its own figure, and a real screenshot for the open-source one. Two figures are
+  interactive:
   - an **encoding decoder** that runs the same bytes through UTF-8, strict latin1 and
     Windows-1252 with the browser's own `TextDecoder`, showing why one fails loudly, one
     fails silently and one gets it right;
@@ -29,9 +32,15 @@ old databases spell it) and decodes itself under a highlighter stroke. The rest 
 
   ![The encoding decoder figure](.github/assets/encoding-figure.png)
 
-- **Bilingual, typed content.** English at `/`, Spanish at `/es`. Long-form content is
-  typed data where every string is `Record<Locale, string>`, so a missing translation is a
-  compile error; interface strings are type-checked against the English messages.
+- **Wide screens use the sides.** A rail marks the section you're reading and a blueprint
+  plate follows the text: each project's screenshot or drawing with its numbers, the
+  experience timeline with the role in view, the stack as layers, three time zones on a
+  live clock. One small client component reads the scroll position; the plates are server
+  rendered.
+- **Four languages, typed content.** English at `/`, Spanish, Italian and Portuguese at
+  `/es`, `/it` and `/pt`. Long-form content is typed data where every string is
+  `Record<Locale, string>`, so a missing translation is a compile error; interface strings
+  are type-checked against the English messages.
 - **Switching language keeps your place.** The element under the header is remembered by
   its DOM path and restored at the same offset in the other language (Spanish runs longer,
   so a raw scroll position would drift). Covered by an end-to-end test that fails without it.
@@ -44,9 +53,9 @@ old databases spell it) and decodes itself under a highlighter stroke. The rest 
 
 | | |
 |---|---|
-| Color | Ink `#13213C` on paper `#F1F2EF`; paper on ink `#0C1322` at night. One accent, a highlighter yellow `#F4D23C`, always *behind* ink. |
-| Type | [Archivo](https://github.com/Omnibus-Type/Archivo) variable. The width axis is the hierarchy: 62% display, 75% headings, 100% text. IBM Plex Mono only for literal code and bytes. Bringhurst's scale. |
-| Layout | A margin column with sticky section titles and a content column. Work is an index of rows, not a grid of cards. |
+| Color | Ink `#13213C` on paper `#F1F2EF`; paper on ink `#0C1322` at night. A highlighter yellow `#F4D23C`, always *behind* ink, and blueprint blue `#21487F` for the plates on wide screens. |
+| Type | [Archivo](https://github.com/Omnibus-Type/Archivo) at its normal width; hierarchy from size and weight. IBM Plex Mono only for literal code and bytes. |
+| Layout | One reading column of 40rem; on wide screens a rail and a plate on either side. Work is a dated list of rows, not a grid of cards. Figures and screenshots step out of the column. |
 | Motion | One orchestrated moment (the decode), once per visit. Everything else answers an action. Respects `prefers-reduced-motion`. |
 
 ## Quality
@@ -74,7 +83,7 @@ src/
 ├── app/[locale]/       # routes: home and projects/[slug], OG images per page
 ├── features/           # home, projects (index, case study, figures), experience
 ├── components/         # ui primitives and layout (header, footer, theme, locale)
-├── content/            # typed bilingual data: projects, experience, profile
+├── content/            # typed multilingual data: projects, experience, profile
 ├── i18n/               # routing, request config, messages
 └── lib/                # site constants, fonts, dates, metadata, OG renderer
 e2e/                    # browser tests

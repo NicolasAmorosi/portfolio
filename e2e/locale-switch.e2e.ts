@@ -25,7 +25,7 @@ function topOf(page: Page, path: number[]): Promise<number> {
   }, path);
 }
 
-async function switchTo(page: Page, locale: "en" | "es") {
+async function switchTo(page: Page, locale: "en" | "es" | "it" | "pt") {
   // A real pointer click: locator.click() would first scroll the sticky header "into view".
   const box = await page.locator(`header a[hreflang="${locale}"]`).boundingBox();
   if (!box) throw new Error(`No visible ${locale} link`);
@@ -38,6 +38,8 @@ const routes = [
   ["/es", "en"],
   ["/projects/legacy-migration", "es"],
   ["/es/projects/libretto", "en"],
+  ["/it", "pt"],
+  ["/pt/projects/himnova-live", "it"],
 ] as const;
 
 for (const [path, locale] of routes) {

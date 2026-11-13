@@ -19,37 +19,28 @@
     "present": "present"
   },
   "hero": {
-    "intro": "Full-stack engineer. I build the systems organizations run on (academic records, HR, accounts payable) end to end, from the legacy database to production. Remote from Argentina, working in English, Spanish and Italian.",
-    "status": "Open to full-time remote roles. Contracts too.",
-    "email": "Email me",
-    "cv": "Download CV",
-    "codePoint": "Code point",
-    "codePointName": "Latin small a with acute",
-    "utf8": "Stored as UTF-8",
-    "misread": "Read as Windows-1252",
-    "note": "Old databases spell my name like this. Getting it right, twenty years of records at a time, is part of the job.",
-    "noteLink": "How I fixed it for a faculty in Florence"
+    "role": "Full-stack engineer, remote from Entre Ríos, Argentina",
+    "now": "I build the software organizations run on, from the legacy database to production. Right now that means <libretto>Libretto</libretto>, the academic records system of a theological faculty in Florence, and <payables>the rewrite of a university’s accounts-payable system</payables> out of Progress 4GL.",
+    "before": "Before that I led the team behind the <hr>HR and admin platform</hr> of the Italian Adventist Church Union, in Rome. I also build <himnova>Himnova Live</himnova>, open-source projection software for churches.",
+    "status": "Open to a full-time remote role, or to contract work. I work in English, Spanish and Italian.",
+    "cv": "CV (PDF)",
+    "note": "Old databases spell my name <bytes>NicolÃ¡s</bytes>. Getting it right, twenty years of records at a time, is part of the job: <fix>this is how I fixed it for a faculty in Florence</fix>."
   },
   "work": {
     "title": "Selected work",
-    "aside": "Client code is private, so these pages show problems, decisions and outcomes instead of code; the exception is Himnova Live, which is open source. Happy to walk through any of it in an interview.",
-    "read": "Read the case study",
+    "note": "Client code is private, so the case studies show problems, decisions and outcomes instead of code. The exception is Himnova Live, which is open source. I’m happy to walk through any of it in an interview.",
     "otherTitle": "Also built"
   },
   "experience": {
     "title": "Experience",
-    "aside": "University, client work and freelance have run in parallel since 2023.",
-    "now": "Now",
     "education": "Education",
     "school": "Universidad Adventista del Plata"
   },
   "principles": {
-    "title": "How I work",
-    "aside": "Habits that show up in every repository."
+    "title": "How I work"
   },
   "stack": {
-    "title": "Tools",
-    "aside": "What I reach for, grouped by layer."
+    "title": "Tools"
   },
   "about": {
     "title": "About",
@@ -60,19 +51,14 @@
   },
   "contact": {
     "title": "Contact",
-    "lead": "Looking for a full-time remote role; contracts work too. Write to me:",
+    "lead": "Email is the quickest way to reach me.",
     "copy": "Copy email",
     "copied": "Copied",
-    "linkedin": "LinkedIn",
-    "github": "GitHub",
     "cv": "CV (PDF)",
-    "clock": "It’s {here} in Entre Ríos: {rome} in Rome and {newYork} in New York.",
-    "clockFallback": "Entre Ríos runs on UTC−3, all year.",
-    "overlap": "My working day overlaps the European afternoon and the whole US East Coast day."
+    "hours": "Entre Ríos runs on UTC−3 all year, so my working day overlaps the European afternoon and the whole US East Coast day."
   },
   "case": {
     "back": "All work",
-    "period": "Period",
     "role": "Role",
     "stack": "Stack",
     "problem": "The problem",
@@ -153,13 +139,34 @@
     }
   },
   "footer": {
-    "colophon": "Set in Archivo and IBM Plex Mono. Built with Next.js, React and Tailwind CSS.",
     "rights": "© {year} Nicolás Amorosi",
+    "colophon": "Set in Archivo and IBM Plex Mono.",
+    "source": "Source on GitHub",
     "top": "Back to top"
   },
   "notFound": {
     "title": "Page not found",
     "body": "There’s nothing at this address, not even a replacement character.",
     "home": "Go to the home page"
+  },
+  "plates": {
+    "glyph": {
+      "title": "The á in my name",
+      "note": "Two bytes in UTF-8. Old databases read them as two characters.",
+      "codePoint": "Code point",
+      "utf8": "Stored as UTF-8",
+      "misread": "Read as Windows-1252"
+    },
+    "stack": {
+      "title": "Tools by layer",
+      "note": "Identity and tests cut across every layer."
+    },
+    "clock": {
+      "title": "Time zones",
+      "note": "Entre Ríos is on UTC−3 all year. The yellow line is now.",
+      "here": "Entre Ríos",
+      "rome": "Rome",
+      "newYork": "New York"
+    }
   }
 }

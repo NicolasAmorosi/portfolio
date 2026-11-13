@@ -21,7 +21,7 @@ function Window({ title, note, children }: { title: string; note: string; childr
 function Link({ label, oneWay = false }: { label: string; oneWay?: boolean }) {
   return (
     <div className="flex items-center gap-2 text-ink-2 sm:flex-col sm:gap-1">
-      <span aria-hidden="true" className="rotate-90 text-lg leading-none sm:rotate-0">{oneWay ? "→" : "⇄"}</span>
+      <span aria-hidden="true" className="rotate-90 text-md leading-none sm:rotate-0">{oneWay ? "→" : "⇄"}</span>
       <span className="font-mono text-xs sm:max-w-[7rem] sm:text-center">{label}</span>
     </div>
   );

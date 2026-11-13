@@ -4,6 +4,6 @@ export const site = {
   email: "nicolasamorosi@gmail.com",
   linkedin: "https://www.linkedin.com/in/nicolas-amorosi/",
   github: "https://github.com/NicolasAmorosi",
+  repo: "https://github.com/NicolasAmorosi/portfolio",
   cv: "/nicolas-amorosi-cv.pdf",
-  timeZone: "America/Argentina/Buenos_Aires",
 } as const;

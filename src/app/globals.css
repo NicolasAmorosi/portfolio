@@ -3,45 +3,40 @@
 /*
  * Design tokens. One palette, two schemes through light-dark(): ink on paper
  * by day, paper on ink by night, so components never need `dark:` variants.
- * The highlighter (mark) is the only accent. It is always a background behind
- * ink, never text on paper (it has no contrast there).
+ * Two accents: the highlighter (mark), always a background behind ink, never
+ * text on paper; and blueprint blue (plan), only for the side plates.
  */
 @theme {
   --color-*: initial;
   --color-paper: light-dark(#f1f2ef, #0c1322);
-  --color-paper-2: light-dark(#e6e8e4, #131c30);
+  --color-paper-2: light-dark(#e8eae6, #121b2e);
   --color-ink: light-dark(#13213c, #e6e9ef);
   --color-ink-2: light-dark(#4a5670, #a3adc1);
   --color-rule: light-dark(#cbd0d7, #27324b);
   --color-mark: #f4d23c;
   --color-mark-ink: #13213c;
+  /* Blueprint: the side plates on wide screens. Light lines on engineering blue. */
+  --color-plan: light-dark(#21487f, #172f57);
+  --color-plan-line: #e3ebf7;
   --color-transparent: transparent;
 
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", monospace;
 
-  /* Classical scale (Bringhurst): 12 14 16 18 21 24 36 48 60 72. */
+  /* Classical scale (Bringhurst), trimmed to what the site uses. */
   --text-*: initial;
   --text-xs: 0.75rem;
   --text-xs--line-height: 1.45;
   --text-sm: 0.875rem;
   --text-sm--line-height: 1.5;
   --text-ui: 1rem;
-  --text-ui--line-height: 1.5;
-  --text-base: 1.125rem;
-  --text-base--line-height: 1.6;
+  --text-ui--line-height: 1.55;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.65;
   --text-md: 1.3125rem;
-  --text-md--line-height: 1.5;
-  --text-lg: 1.5rem;
-  --text-lg--line-height: 1.3;
+  --text-md--line-height: 1.45;
   --text-xl: 2.25rem;
-  --text-xl--line-height: 1.05;
-  --text-2xl: 3rem;
-  --text-2xl--line-height: 1;
-  --text-3xl: 3.75rem;
-  --text-3xl--line-height: 0.95;
-  --text-4xl: 4.5rem;
-  --text-4xl--line-height: 0.92;
+  --text-xl--line-height: 1.1;
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -49,7 +44,7 @@
 @layer base {
   :root {
     color-scheme: light dark;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 4.5rem;
   }
   :root[data-theme="light"] {
     color-scheme: light;
@@ -71,10 +66,16 @@
     font-size: var(--text-base);
     line-height: var(--text-base--line-height);
     font-kerning: normal;
-    font-variant-numeric: proportional-nums;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Big monitors: everything one step larger (layout is in rem). */
+  @media (width >= 100rem) {
+    :root {
+      font-size: 106.25%;
+    }
   }
 
   ::selection {
@@ -92,6 +93,7 @@
   h2,
   h3 {
     text-wrap: balance;
+    font-weight: 600;
   }
 
   p,
@@ -101,49 +103,39 @@
   }
 }
 
-/* Page gutter + max measure, shared by every section. */
+/* Page gutter. */
 @utility shell {
   margin-inline: auto;
   width: 100%;
   max-width: 82rem;
-  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
-/* Type roles. Width is Archivo's wdth axis (62–125), driven by font-stretch. */
-@utility type-display {
-  font-stretch: 62%;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  line-height: 0.84;
+/* The reading column every page sits in (≈ 70 characters of body text). */
+@utility column {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 40rem;
 }
 
-@utility type-heading {
-  font-stretch: 75%;
-  font-weight: 700;
-  letter-spacing: -0.005em;
-}
-
-@utility type-label {
-  font-size: var(--text-sm);
-  line-height: var(--text-sm--line-height);
-  color: var(--color-ink-2);
-}
-
-/* Inline link: thin ink underline; on hover a highlighter stroke sweeps in. */
+/* Inline link: a quiet underline; on hover a highlighter stroke sweeps in.
+   (A 200%-wide half gradient slides; animating background-size leaves hairlines.) */
 @utility link {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.22em;
-  text-decoration-color: var(--color-ink-2);
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
   background-image: linear-gradient(90deg, var(--color-mark) 50%, transparent 50%);
   background-repeat: no-repeat;
-  background-position: 100% 0;
+  /* Parked just past the left edge: at exactly 100% Chrome leaks a sliver of the stroke. */
+  background-position: calc(100% - 4px) 0;
   background-size: 200% 100%;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   transition:
     background-position 260ms var(--ease-out-quart),
-    color 160ms;
+    color 160ms,
+    text-decoration-color 160ms;
 
   &:hover {
     background-position: 0 0;
@@ -152,13 +144,13 @@
   }
 }
 
-/* Highlighter stroke behind a word, drawn when its .group is hovered or focused. */
+/* The same stroke behind a word, drawn while its .group is hovered or focused. */
 @layer components {
   .highlight {
     background-image: linear-gradient(90deg, var(--color-mark) 50%, transparent 50%);
     background-repeat: no-repeat;
-    background-position: 100% 62%;
-    background-size: 200% 74%;
+    background-position: calc(100% - 4px) 62%;
+    background-size: 200% 78%;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     transition:
@@ -166,7 +158,6 @@
       color 160ms;
   }
   .group:hover .highlight,
-  .group:focus-visible .highlight,
   .group:focus-within .highlight {
     background-position: 0 62%;
     color: var(--color-mark-ink);
@@ -185,25 +176,20 @@
   }
 }
 
-/* Header hairline + reading progress, driven by scroll (no JS). Browsers
-   without scroll-driven animations simply don't show them. */
+/* Header hairline, driven by scroll (no JS). On the home page the name in the
+   header also waits until the page's own heading has scrolled away. Browsers
+   without scroll-driven animations show both from the start. */
 @supports (animation-timeline: scroll()) {
   .header-rule {
     animation: header-rule linear both;
     animation-timeline: scroll(root);
-    animation-range: 0 6rem;
+    animation-range: 0 4rem;
   }
 
-  .reading-progress {
-    transform-origin: 0 50%;
-    animation: reading-progress linear both;
+  body:has(#intro) .header-name:not(:focus-visible) {
+    animation: header-name linear both;
     animation-timeline: scroll(root);
-  }
-}
-
-@supports not (animation-timeline: scroll()) {
-  .reading-progress {
-    display: none;
+    animation-range: 5rem 8rem;
   }
 }
 
@@ -216,18 +202,20 @@
   }
 }
 
-@keyframes reading-progress {
+@keyframes header-name {
   from {
-    transform: scaleX(0);
+    opacity: 0;
+    translate: 0 0.25rem;
   }
   to {
-    transform: scaleX(1);
+    opacity: 1;
+    translate: 0 0;
   }
 }
 
 /*
- * Hero name decode (see features/home/decoded-name.tsx). The server renders
- * the mojibake; the client steps data-phase: flag → fixed → done.
+ * Name decode (see features/home/decoded-name.tsx). The server renders the
+ * mojibake; the client steps data-phase: flag → fixed → done.
  * Without JS (noscript) or with reduced motion, the fixed name shows at once.
  */
 .decode .decode-fixed {
@@ -252,7 +240,7 @@
 .decode .glyph::before {
   content: "";
   position: absolute;
-  inset: 24% -0.03em 4%;
+  inset: 18% -0.04em 6%;
   z-index: -1;
   background: var(--color-mark);
   transform: scaleX(0);
@@ -294,6 +282,101 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .theme-icon {
     rotate: 180deg;
+  }
+}
+
+/*
+ * Wide screens: the rail on the left marks where you are (positioned from the
+ * scroll in components/ui/scroll-spy), the plate on the right shows the thing
+ * you're reading about.
+ */
+.plate-grid {
+  background-color: var(--color-plan);
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--color-plan-line) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--color-plan-line) 9%, transparent) 1px, transparent 1px);
+  background-size: 1.25rem 1.25rem;
+  background-position: -1px -1px;
+}
+
+.slide {
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 0.75rem;
+  transition:
+    opacity 280ms var(--ease-out-quart),
+    translate 380ms var(--ease-out-quart),
+    visibility 0s 380ms;
+}
+.slide[data-on] {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+  transition-delay: 80ms, 80ms, 0s;
+}
+
+/* Lines plot themselves when their plate comes in (pathLength="1" on each). */
+@media (prefers-reduced-motion: no-preference) {
+  .slide[data-on] .draw {
+    stroke-dasharray: 1;
+    animation: draw 1100ms var(--ease-out-quart) both;
+  }
+  .slide[data-on] .fill-in {
+    animation: fill-in 500ms 450ms both;
+  }
+  .slide[data-on] .grow-x {
+    transform-origin: 0 50%;
+    animation: grow-x 700ms 150ms var(--ease-out-quart) both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition: none;
+    translate: none;
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fill-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* On the home page the rail is the navigation: the header keeps only language and theme. */
+@media (width >= 80rem) {
+  body:has(#intro) .header-nav {
+    display: none;
+  }
+}
+
+/* Screenshots ship in both schemes; show the one that matches the page. */
+.only-dark {
+  display: none;
+}
+:root[data-theme="dark"] .only-light {
+  display: none;
+}
+:root[data-theme="dark"] .only-dark {
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .only-light {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .only-dark {
+    display: block;
   }
 }
 

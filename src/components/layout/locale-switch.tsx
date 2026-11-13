@@ -5,7 +5,7 @@ import { useLayoutEffect } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
-const names = { en: "English", es: "Español" } as const;
+const names = { en: "English", es: "Español", it: "Italiano", pt: "Português" } as const;
 
 /*
  * Switching language must keep the reader where they are. Both locales render
@@ -66,7 +66,7 @@ export function LocaleSwitch({ label }: { label: string }) {
               pending = l === locale ? null : captureAnchor();
             }}
             aria-current={l === locale ? "true" : undefined}
-            className="grid h-8 min-w-9 place-items-center rounded-[3px] px-1.5 font-medium uppercase tracking-wide text-ink-2 transition-colors hover:text-ink aria-[current]:bg-mark aria-[current]:text-mark-ink"
+            className="grid h-9 min-w-8 place-items-center px-1 text-ink-2 uppercase transition-colors hover:text-ink aria-[current]:font-semibold aria-[current]:text-ink"
           >
             {l}
           </Link>
