@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 // too (or the old picture keeps showing on LinkedIn and friends).
 export const size = ogSize;
 export const contentType = "image/png";
-export const alt = `${site.name}, full-stack engineer`;
+export const alt = `${site.name}, full-stack software engineer`;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Nicolás Amorosi, ingeniero full-stack",
-    "description": "Ingeniero full-stack (TypeScript, Next.js, NestJS, PostgreSQL). Construyo y modernizo sistemas de gestión de punta a punta, desde la base de datos legacy hasta producción. Remoto desde Argentina; español, inglés, italiano.",
-    "jobTitle": "Ingeniero full-stack"
+    "title": "Nicolás Amorosi, ingeniero de software full-stack",
+    "description": "Ingeniero de software full-stack (TypeScript, Next.js, NestJS, PostgreSQL). Construyo y modernizo sistemas de gestión de punta a punta, desde la base de datos legacy hasta producción. Remoto desde Argentina; español, inglés, italiano.",
+    "jobTitle": "Ingeniero de software full-stack"
   },
   "nav": {
     "skip": "Ir al contenido",
@@ -19,7 +19,7 @@
     "present": "hoy"
   },
   "hero": {
-    "role": "Ingeniero full-stack, remoto desde Entre Ríos, Argentina",
+    "role": "Ingeniero de software full-stack, remoto desde Entre Ríos, Argentina",
     "now": "Construyo el software con el que funcionan las organizaciones, desde la base de datos legacy hasta producción. Ahora mismo eso es <libretto>Libretto</libretto>, el sistema de registros académicos de una facultad de teología en Florencia, y <payables>la reescritura del sistema de cuentas a pagar de una universidad</payables>, escrito en Progress 4GL.",
     "before": "Antes lideré el equipo de la <hr>plataforma de RR. HH. y administración</hr> de la Unión Italiana de Iglesias Adventistas, en Roma. También desarrollo <himnova>Himnova Live</himnova>, un software libre de proyección para iglesias.",
     "status": "Disponible para un puesto remoto full-time o para trabajos por contrato. Trabajo en español, inglés e italiano.",

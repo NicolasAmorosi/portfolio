@@ -1,7 +1,7 @@
 # CLAUDE.md · nicolasamorosi.com
 
 Guidance for Claude Code (and any developer) working on this repo: the personal site of
-Nicolás Amorosi, full-stack engineer. **This repository is public**: treat every file as
+Nicolás Amorosi, full-stack software engineer. **This repository is public**: treat every file as
 something a recruiter or an interviewer will read.
 
 Chat with Nicolás in Spanish; code, comments, commit messages and docs in English.

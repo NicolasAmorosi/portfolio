@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/NicolasAmorosi/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/NicolasAmorosi/portfolio/actions/workflows/ci.yml)
 
-Personal site of Nicolás Amorosi, full-stack engineer: **[nicolasamorosi.com](https://nicolasamorosi.com)**.
+Personal site of Nicolás Amorosi, full-stack software engineer: **[nicolasamorosi.com](https://nicolasamorosi.com)**.
 
 ![The home page on a wide screen: a section rail on the left, the intro in the middle and a blueprint plate of the á on the right](.github/assets/home-light.png)
 
