@@ -71,7 +71,7 @@ export const stack: { area: Localized; items: string[] }[] = [
 
 export const languages: { name: Localized; level: Localized }[] = [
   { name: { en: "Spanish", es: "Español", it: "Spagnolo", pt: "Espanhol" }, level: { en: "Native", es: "Nativo", it: "Madrelingua", pt: "Nativo" } },
-  { name: { en: "English", es: "Inglés", it: "Inglese", pt: "Inglês" }, level: { en: "Full professional", es: "Profesional completo", it: "Conoscenza professionale completa", pt: "Proficiência profissional plena" } },
+  { name: { en: "English", es: "Inglés", it: "Inglese", pt: "Inglês" }, level: { en: "C2 (EF SET 75/100)", es: "C2 (EF SET 75/100)", it: "C2 (EF SET 75/100)", pt: "C2 (EF SET 75/100)" } },
   { name: { en: "Italian", es: "Italiano", it: "Italiano", pt: "Italiano" }, level: { en: "Professional working", es: "Profesional de trabajo", it: "Conoscenza professionale", pt: "Proficiência profissional" } },
   { name: { en: "Portuguese", es: "Portugués", it: "Portoghese", pt: "Português" }, level: { en: "Limited working", es: "Intermedio", it: "Conoscenza professionale limitata", pt: "Intermediário" } },
 ];
