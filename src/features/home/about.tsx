@@ -11,7 +11,7 @@ export async function About() {
       <p>{t("p2")}</p>
       <p>{t("p3")}</p>
       <p className="text-ui text-ink-2">
-        {t("languages")}: {languages.map((l) => `${l.name[locale]} (${l.level[locale].toLowerCase()})`).join(", ")}.
+        {t("languages")}: {languages.map((l) => `${l.name[locale]} (${l.level[locale]})`).join(", ")}.
       </p>
     </div>
   );
